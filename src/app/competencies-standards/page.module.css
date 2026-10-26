@@ -1,0 +1,252 @@
+.container {
+  padding: 3rem 0 5rem;
+}
+
+.anchorBar {
+  position: sticky;
+  top: calc(var(--header-height) + 12px);
+  z-index: 100;
+  background-color: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-hairline);
+  padding: 0.6rem 1.25rem;
+  margin-bottom: 3.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.anchorLabel {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.anchorLink {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-sm);
+  transition: all 0.15s ease;
+}
+
+.anchorLink:hover {
+  background-color: var(--bg-subtle);
+  color: var(--text-primary);
+}
+
+.sectionBlock {
+  margin-bottom: 3.5rem;
+  scroll-margin-top: 110px;
+}
+
+/* ==========================================================================
+   UNIFIED HAIRLINE FRAME CONTAINER (Matching Clinical Infrastructure)
+   ========================================================================== */
+.frameBlock {
+  border: 1px solid var(--border-hairline);
+  background-color: var(--bg-card);
+  margin-bottom: 3.5rem;
+  position: relative;
+}
+
+.frameHeader {
+  border-bottom: 1px solid var(--border-hairline);
+  padding: 2.75rem 2.25rem 2rem;
+}
+
+.sectionTitle {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 0.5rem;
+  letter-spacing: -0.03em;
+}
+
+.sectionLead {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-top: 0.65rem;
+  max-width: 760px;
+}
+
+/* Skills Controls Bar (Integrated in Frame) */
+.skillsControls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 1.25rem 2.25rem;
+  border-bottom: 1px solid var(--border-hairline);
+  background-color: var(--bg-surface);
+}
+
+.filterBtn {
+  padding: 0.4rem 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-hairline);
+  background-color: var(--bg-card);
+  color: var(--text-secondary);
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.filterBtn:hover {
+  background-color: var(--bg-subtle);
+  color: var(--text-primary);
+}
+
+.filterBtnActive {
+  background-color: var(--text-primary);
+  color: var(--text-inverse);
+  border-color: var(--text-primary);
+}
+
+/* ==========================================================================
+   STROKE-DIVIDED SKILLS GRID (Direct Children of Frame)
+   ========================================================================== */
+.strokeGrid3 {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .strokeGrid3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .strokeGrid3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.skillCell {
+  background-color: transparent;
+  border-bottom: 1px solid var(--border-hairline);
+  padding: 1.35rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.85rem;
+  transition: background-color 0.15s ease;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .skillCell:nth-child(odd) {
+    border-right: 1px solid var(--border-hairline);
+  }
+}
+
+@media (min-width: 1024px) {
+  .skillCell {
+    border-right: 1px solid var(--border-hairline);
+  }
+  .skillCell:nth-child(3n) {
+    border-right: none;
+  }
+}
+
+.skillCell:hover {
+  background-color: var(--bg-card-hover);
+}
+
+.skillName {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.45;
+}
+
+.skillBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+/* ==========================================================================
+   STROKE-DIVIDED COMPETENCY STACK (Direct Children of Frame)
+   ========================================================================== */
+.competencyStack {
+  display: flex;
+  flex-direction: column;
+}
+
+.competencyCell {
+  background-color: transparent;
+  border-bottom: 1px solid var(--border-hairline);
+  padding: 2.75rem 2.25rem;
+}
+
+.competencyCell:last-child {
+  border-bottom: none;
+}
+
+.compHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.compTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.subSectionTitle {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.compParagraph {
+  font-size: 0.94rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+/* Synthesis Box (Direct Child of Frame) */
+.synthesisBox {
+  background-color: var(--bg-subtle);
+  border-top: 1px solid var(--border-hairline);
+  border-left: 3px solid var(--accent-primary);
+  padding: 2.75rem 2.25rem;
+}
+
+.synthesisTitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.synthesisBox p {
+  color: var(--text-secondary);
+  font-size: 0.96rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.synthesisBox p:last-child {
+  margin-bottom: 0;
+}

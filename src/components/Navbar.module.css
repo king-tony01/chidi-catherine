@@ -1,0 +1,329 @@
+.headerWrapper {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-hairline);
+  transition: all 0.2s ease;
+  padding: 1.25rem 0;
+}
+
+@media (max-width: 640px) {
+  .headerWrapper {
+    padding: 1rem 0;
+  }
+}
+
+.navContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Brand - Clean Name Only */
+.brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.brandName {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.025em;
+  transition: color 0.15s ease;
+}
+
+.brand:hover .brandName {
+  color: var(--accent-text);
+}
+
+/* Desktop Navigation - Exactly 4 items */
+.desktopNav {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (min-width: 900px) {
+  .desktopNav {
+    display: flex;
+  }
+}
+
+.navItemWrapper {
+  position: relative;
+}
+
+.navLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 0.95rem;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--text-secondary);
+  background: transparent;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-full);
+  transition: all 0.15s ease;
+  cursor: pointer;
+  text-decoration: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+}
+
+.navLink:hover {
+  color: var(--text-primary);
+  background-color: var(--bg-subtle);
+}
+
+.navLinkActive {
+  color: var(--text-primary);
+  background-color: var(--bg-subtle);
+  font-weight: 600;
+}
+
+.dropdownArrow {
+  opacity: 0.6;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  flex-shrink: 0;
+}
+
+.navItemWrapper:hover .dropdownArrow {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+/* Large Structured "More" Dropdown */
+.moreDropdown {
+  position: absolute;
+  top: 100%;
+  right: -50px;
+  width: 540px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-hairline);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1050;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.moreDropdown::before {
+  content: "";
+  position: absolute;
+  top: -14px;
+  left: 0;
+  right: 0;
+  height: 14px;
+}
+
+.navItemWrapper:hover .moreDropdown,
+.navItemWrapper:focus-within .moreDropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(2px);
+}
+
+.moreGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.moreGroupHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.moreGroupTitle {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+  transition: color 0.15s ease;
+}
+
+.moreGroupHeader:hover .moreGroupTitle {
+  color: var(--accent-text);
+}
+
+.moreSublist {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-top: 0.25rem;
+}
+
+.moreSubitem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.35rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  transition: all 0.15s ease;
+}
+
+.moreSubitem:hover {
+  background-color: var(--bg-subtle);
+  color: var(--text-primary);
+  transform: translateX(3px);
+}
+
+.subBadge {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 600;
+  background-color: var(--accent-badge-bg);
+  color: var(--accent-text);
+  border: 1px solid var(--accent-border);
+  padding: 0.1rem 0.4rem;
+  border-radius: var(--radius-full);
+}
+
+/* Actions Right */
+.actionsRight {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.mobileToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-hairline);
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  font-size: 1.15rem;
+}
+
+@media (min-width: 900px) {
+  .mobileToggle {
+    display: none;
+  }
+}
+
+/* Mobile Drawer */
+.mobileDrawerOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+}
+
+.mobileDrawerOverlayOpen {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobileDrawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 85%;
+  max-width: 360px;
+  background-color: var(--bg-surface);
+  border-left: 1px solid var(--border-hairline);
+  z-index: 2001;
+  box-shadow: var(--shadow-lg);
+  transform: translateX(100%);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.mobileDrawerOpen {
+  transform: translateX(0);
+}
+
+.drawerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.drawerCloseBtn {
+  font-size: 1.35rem;
+  color: var(--text-muted);
+  padding: 0.25rem;
+}
+
+.drawerBody {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.drawerPrimaryGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.drawerLink {
+  padding: 0.7rem 0.95rem;
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  background-color: var(--bg-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.drawerLinkActive {
+  background-color: var(--accent-subtle);
+  color: var(--accent-text);
+  border-left: 3px solid var(--accent-primary);
+}
+
+.drawerSectionTitle {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}

@@ -1,49 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap');
+
+/* ==========================================================================
+   DESIGN TOKENS - System Theme Aware (Light Mode Default)
+   ========================================================================== */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Canvas & Surfaces */
+  --bg-page: #fafafa;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f4f4f5;
+  --bg-subtle: #f4f4f5;
+  --bg-glass: rgba(255, 255, 255, 0.85);
+
+  /* Spotlight Lighting */
+  --spotlight-glow: radial-gradient(110% 80% at 50% -10%, rgba(13, 148, 136, 0.12) 0%, rgba(15, 118, 110, 0.04) 45%, transparent 75%);
+  --spotlight-subtle: radial-gradient(100% 70% at 50% 120%, rgba(13, 148, 136, 0.08) 0%, transparent 70%);
+
+  /* Typography Colors */
+  --text-primary: #09090b;       /* Zinc 950 */
+  --text-secondary: #52525b;     /* Zinc 600 */
+  --text-muted: #71717a;         /* Zinc 500 */
+  --text-subtle: #a1a1aa;        /* Zinc 400 */
+  --text-inverse: #ffffff;
+
+  /* Clinical Teal Accent (Medical Tech) */
+  --accent-primary: #0d9488;     /* Teal 600 */
+  --accent-primary-hover: #0f766e;
+  --accent-subtle: rgba(13, 148, 136, 0.08);
+  --accent-border: rgba(13, 148, 136, 0.25);
+  --accent-text: #0f766e;
+
+  /* Borders & Section Divider Strokes */
+  --border-hairline: #e4e4e7;    /* Zinc 200 */
+  --border-medium: #d4d4d8;      /* Zinc 300 */
+  --border-card-hover: #a1a1aa;  /* Zinc 400 */
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.03);
+
+  /* Fonts */
+  --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-2xl: 28px;
+  --radius-full: 9999px;
+
+  --container-max: 1200px;
+  --header-height: 78px;
 }
 
+/* ==========================================================================
+   DARK MODE OVERRIDES (System Theme Aware)
+   ========================================================================== */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg-page: #000000;
+    --bg-surface: #09090b;       /* Zinc 950 */
+    --bg-surface-elevated: #121215;
+    --bg-card: #0d0d10;
+    --bg-card-hover: #18181b;     /* Zinc 900 */
+    --bg-subtle: #121215;
+    --bg-glass: rgba(0, 0, 0, 0.75);
+
+    --spotlight-glow: radial-gradient(110% 80% at 50% -10%, rgba(20, 184, 166, 0.18) 0%, rgba(13, 148, 136, 0.06) 45%, transparent 75%);
+    --spotlight-subtle: radial-gradient(100% 70% at 50% 120%, rgba(20, 184, 166, 0.12) 0%, transparent 70%);
+
+    --text-primary: #fafafa;     /* Zinc 50 */
+    --text-secondary: #a1a1aa;   /* Zinc 400 */
+    --text-muted: #71717a;       /* Zinc 500 */
+    --text-subtle: #52525b;      /* Zinc 600 */
+    --text-inverse: #09090b;
+
+    --accent-primary: #14b8a6;   /* Teal 500 */
+    --accent-primary-hover: #2dd4bf;
+    --accent-subtle: rgba(20, 184, 166, 0.12);
+    --accent-border: rgba(45, 212, 191, 0.25);
+    --accent-text: #2dd4bf;
+
+    --border-hairline: #27272a;  /* Zinc 800 */
+    --border-medium: #3f3f46;    /* Zinc 700 */
+    --border-card-hover: #52525b;
+
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.6);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.7);
   }
 }
 
+/* ==========================================================================
+   GLOBAL RESET & BASE
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
 html {
-  height: 100%;
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+body {
+  min-height: 100vh;
+  background-color: var(--bg-page);
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  line-height: 1.65;
+  overflow-x: hidden;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  position: relative;
+}
+
+main {
+  flex: 1;
+}
+
+/* Typography Base */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+h1 { font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 800; }
+h2 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); font-weight: 700; }
+h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
+h4 { font-size: 1.05rem; }
+
+p {
+  margin-bottom: 1rem;
+}
+
+p:last-child {
+  margin-bottom: 0;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+  transition: color 0.15s ease, border-color 0.15s ease;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+/* Container */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Section Divider Stroke (Clean Hairline Rule) */
+.sectionDivider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--border-hairline);
+  border: none;
+  margin: 0;
+}
+
+/* Clean Unboxed Eyebrow Title (Replacing amateurish pills) */
+.sectionEyebrow, .monoEyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.sectionEyebrow::before, .monoEyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 1px;
+  background-color: var(--accent-text);
+}
+
+.monoLabel {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* Technical Spec Tag */
+.specTag {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-hairline);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+}
+
+/* Button System (Minimalist Tech Style) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.4rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: var(--text-primary);
+  color: var(--text-inverse);
+  border: 1px solid transparent;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-medium);
+}
+
+.btn-secondary:hover {
+  background-color: var(--bg-card-hover);
+  border-color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+/* Reference-Style Bento Card */
+.bentoCard {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.bentoCard:hover {
+  border-color: var(--border-card-hover);
+  background-color: var(--bg-card-hover);
+}
+
+/* Print */
+@media print {
+  header, footer, nav, .no-print {
+    display: none !important;
+  }
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
   }
 }

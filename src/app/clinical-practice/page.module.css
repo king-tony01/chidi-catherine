@@ -1,0 +1,239 @@
+.container {
+  padding: 3rem 0 5rem;
+}
+
+.anchorBar {
+  position: sticky;
+  top: calc(var(--header-height) + 12px);
+  z-index: 100;
+  background-color: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-hairline);
+  padding: 0.6rem 1.25rem;
+  margin-bottom: 3.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.anchorLabel {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.anchorLink {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-sm);
+  transition: all 0.15s ease;
+}
+
+.anchorLink:hover {
+  background-color: var(--bg-subtle);
+  color: var(--text-primary);
+}
+
+.sectionBlock {
+  margin-bottom: 3.5rem;
+  scroll-margin-top: 110px;
+}
+
+/* ==========================================================================
+   UNIFIED HAIRLINE FRAME CONTAINER (Matching Clinical Infrastructure)
+   ========================================================================== */
+.frameBlock {
+  border: 1px solid var(--border-hairline);
+  background-color: var(--bg-card);
+  margin-bottom: 3.5rem;
+  position: relative;
+}
+
+.frameHeader {
+  border-bottom: 1px solid var(--border-hairline);
+  padding: 2.75rem 2.25rem 2rem;
+}
+
+.sectionTitle {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 0.5rem;
+  letter-spacing: -0.03em;
+}
+
+.sectionLead {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-top: 0.65rem;
+  max-width: 760px;
+}
+
+.frameBody {
+  padding: 2.75rem 2.25rem;
+}
+
+.prose {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--text-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* ==========================================================================
+   STROKE-DIVIDED NARRATIVE STACK (Direct Children of Frame)
+   ========================================================================== */
+.narrativeStack {
+  display: flex;
+  flex-direction: column;
+}
+
+.narrativeCell {
+  background-color: transparent;
+  border-bottom: 1px solid var(--border-hairline);
+  border-left: 3px solid var(--accent-primary);
+  padding: 2.5rem 2.25rem;
+}
+
+.narrativeCell:last-child {
+  border-bottom: none;
+}
+
+.narrativeHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed var(--border-hairline);
+}
+
+.narrativeCourseTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.narrativeMeta {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.narrativeText {
+  font-size: 0.96rem;
+  line-height: 1.85;
+  color: var(--text-secondary);
+  margin-bottom: 1.25rem;
+}
+
+.narrativeText:last-child {
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   STROKE-DIVIDED PRACTICUM GRID (3x2 on Desktop - Direct Children of Frame)
+   ========================================================================== */
+.strokeGrid6 {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 900px) {
+  .strokeGrid6 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.practicumCell {
+  background-color: transparent;
+  border-bottom: 1px solid var(--border-hairline);
+  padding: 2.5rem 2.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: background-color 0.15s ease;
+  position: relative;
+}
+
+@media (min-width: 900px) {
+  .practicumCell {
+    border-right: 1px solid var(--border-hairline);
+  }
+
+  .practicumCell:nth-child(3n) {
+    border-right: none;
+  }
+
+  .practicumCell:nth-last-child(-n+3) {
+    border-bottom: none;
+  }
+}
+
+.practicumCell:hover {
+  background-color: var(--bg-card-hover);
+}
+
+.practicumCellActive {
+  background-color: var(--accent-subtle);
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.cardCode {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--accent-text);
+  background-color: var(--accent-badge-bg);
+  border: 1px solid var(--accent-border);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-sm);
+}
+
+.cardTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.cardDesc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.cardFooter {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-hairline);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

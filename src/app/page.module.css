@@ -1,150 +1,800 @@
-.page {
-  --background: #fafafa;
-  --foreground: #fff;
-
-  --text-primary: #000;
-  --text-secondary: #666;
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-  --button-secondary-border: #ebebeb;
-
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-geist-sans);
-  background-color: var(--background);
+/* ==========================================================================
+   HERO SECTION - Technical Medical Precision (System Theme Aware)
+   ========================================================================== */
+.hero {
+  position: relative;
+  padding: 6.5rem 0 5rem;
+  overflow: hidden;
+  background-image: var(--spotlight-glow);
+  background-size: 100% 100%;
 }
 
-.main {
+.heroContent {
   display: flex;
-  flex: 1;
-  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
   max-width: 800px;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  background-color: var(--foreground);
-  padding: 120px 60px;
 }
 
-.intro {
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 992px) {
+  .heroGrid {
+    grid-template-columns: minmax(0, 1.35fr) minmax(320px, 380px);
+    gap: 4rem;
+    align-items: center;
+  }
+}
+
+/* ==========================================================================
+   CLINICAL PROFILE DOSSIER (Hairline Stroke Frame)
+   ========================================================================== */
+.profileDossierCol {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.profileFrame {
+  width: 100%;
+  max-width: 380px;
+  border: 1px solid var(--border-hairline);
+  background-color: var(--bg-card);
+  position: relative;
+  transition: border-color 0.2s ease;
+  overflow: hidden;
+}
+
+.profileFrame:hover {
+  border-color: var(--accent-border);
+}
+
+.profileImgWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 4.8;
+  background-color: var(--bg-surface);
+  overflow: hidden;
+}
+
+.profileImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 8%;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.profileFrame:hover .profileImg {
+  transform: scale(1.02);
+}
+
+.profileWatermark {
+  position: absolute;
+  bottom: 0.65rem;
+  right: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(10, 15, 29, 0.75);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.25rem 0.55rem;
+  border-radius: 2px;
+  letter-spacing: 0.04em;
+}
+
+.profileMetaGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--border-hairline);
+}
+
+.profileMetaCell {
+  padding: 0.75rem 1rem;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 24px;
+  gap: 0.2rem;
+  border-right: 1px solid var(--border-hairline);
 }
 
-.intro h1 {
-  max-width: 320px;
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 48px;
-  letter-spacing: -2.4px;
-  text-wrap: balance;
+.profileMetaCell:last-child {
+  border-right: none;
+}
+
+.profileMetaLabel {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.profileMetaValue {
+  font-size: 0.82rem;
+  font-weight: 700;
   color: var(--text-primary);
+  font-family: var(--font-mono);
 }
 
-.intro p {
-  max-width: 440px;
-  font-size: 18px;
-  line-height: 32px;
-  text-wrap: balance;
+.profileFooter {
+  padding: 0.75rem 1rem;
+  border-top: 1px solid var(--border-hairline);
+  background-color: var(--bg-surface);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.profileFooterLabel {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.profileFooterValue {
+  font-size: 0.82rem;
+  font-weight: 600;
   color: var(--text-secondary);
 }
 
-.intro a {
-  font-weight: 500;
+.heroEyebrow {
+  margin-bottom: 1.5rem;
+}
+
+.heroTitle {
+  font-size: clamp(2.3rem, 5vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.heroAccent {
+  color: var(--accent-text);
+  font-weight: 800;
+}
+
+.heroLead {
+  font-size: clamp(1rem, 1.6vw, 1.18rem);
+  line-height: 1.75;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  max-width: 740px;
+}
+
+.heroLead strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .heroActions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .heroActions > a,
+  .heroActions :global(.btn) {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* Horizontal Technical Spec Strip */
+.specStrip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-hairline);
+  width: 100%;
+}
+
+.specItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+
+.specItem strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   SECTION COMMON & SECTION DIVIDERS
+   ========================================================================== */
+.section {
+  padding: 5.5rem 0;
+  position: relative;
+}
+
+.sectionHeader {
+  margin-bottom: 3rem;
+}
+
+.sectionHeaderCenter {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 3.5rem;
+}
+
+.sectionTitle {
+  font-size: clamp(1.85rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  margin-bottom: 0.75rem;
+}
+
+.sectionSubtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+/* ==========================================================================
+   CLINICAL INFRASTRUCTURE - STROKE DIVIDER GRID (Reference Site Pattern)
+   ========================================================================== */
+.infraFrame {
+  border: 1px solid var(--border-hairline);
+  background-color: var(--bg-card);
+  position: relative;
+}
+
+.infraHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 2.75rem 2.25rem 2.25rem;
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+@media (min-width: 768px) {
+  .infraHeader {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+}
+
+.infraHeaderLeft {
+  max-width: 720px;
+}
+
+.infraHeaderAction {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: color 0.15s ease;
+  white-space: nowrap;
+  padding-bottom: 0.25rem;
+}
+
+.infraHeaderAction:hover {
   color: var(--text-primary);
 }
 
-.ctas {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: 440px;
-  gap: 16px;
-  font-size: 14px;
+.infraHeaderAction svg {
+  transition: transform 0.15s ease;
 }
 
-.ctas a {
+.infraHeaderAction:hover svg {
+  transform: translateX(3px);
+}
+
+/* 3-Column Stroke Divider Grid */
+.dividerGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 960px) {
+  .dividerGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.dividerCard {
+  position: relative;
+  padding: 2.5rem 2.25rem 2.25rem;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: transparent;
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+@media (min-width: 960px) {
+  .dividerCard {
+    border-bottom: none;
+    border-right: 1px solid var(--border-hairline);
+  }
+
+  .dividerCard:last-child {
+    border-right: none;
+  }
+}
+
+.dividerCard:hover {
+  background-color: var(--bg-card-hover);
+}
+
+/* Subtle top hover accent line like reference */
+.dividerCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: transparent;
+  transition: background-color 0.2s ease;
+}
+
+.dividerCard:hover::before {
+  background-color: var(--accent-primary);
+}
+
+.cardTopContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.cardMetaRow {
+  display: flex;
   align-items: center;
-  height: 40px;
-  padding: 0 16px;
-  border-radius: 128px;
-  border: 1px solid transparent;
-  transition: 0.2s;
-  cursor: pointer;
-  width: fit-content;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.cardMetaCategory {
+  color: var(--accent-text);
+  font-weight: 700;
+}
+
+.cardMetaStatus {
+  color: var(--text-muted);
+}
+
+.cardMainTitle {
+  font-size: clamp(1.5rem, 2.2vw, 1.85rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.cardSubtitle {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: 0.45rem;
+  line-height: 1.5;
+}
+
+.cardDescription {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-top: 0.85rem;
+}
+
+/* Specs Sub-Grid (separated by horizontal stroke) */
+.cardSpecsRow {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-hairline);
+}
+
+.specItemCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.specColLabel {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.specColValue {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+/* Action Link Row (separated by horizontal stroke) */
+.cardActionRow {
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-hairline);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cardActionLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  transition: all 0.15s ease;
+}
+
+.cardActionLink:hover {
+  color: var(--accent-text);
+}
+
+.cardActionLink svg {
+  transition: transform 0.15s ease;
+}
+
+.cardActionLink:hover svg {
+  transform: translate(2px, -2px);
+}
+
+/* 3-Column Bento Grid */
+.bentoGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .bentoGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .bentoGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.bentoSpan2 {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 1024px) {
+  .bentoSpan2 {
+    grid-column: span 2;
+  }
+}
+
+.bentoHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.bentoTitle {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.bentoDesc {
+  font-size: 0.94rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+
+.bentoSpecRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.bentoStatValue {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 0.35rem;
+}
+
+/* ==========================================================================
+   TIMELINE SECTION (Stroke-Divided 4-Column Grid)
+   ========================================================================== */
+.milestonesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .milestonesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .milestonesGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.milestoneCell {
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: transparent;
+  border-bottom: 1px solid var(--border-hairline);
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .milestoneCell {
+    border-bottom: none;
+    border-right: 1px solid var(--border-hairline);
+  }
+
+  .milestoneCell:last-child {
+    border-right: none;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .milestoneCell:nth-child(odd) {
+    border-right: 1px solid var(--border-hairline);
+  }
+  .milestoneCell:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+}
+
+.timelinePhase {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent-text);
+  margin-bottom: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.timelineCardTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.6rem;
+  line-height: 1.3;
+}
+
+.timelineCardText {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   PHILOSOPHY CREED (Stroke-Divided Frame Block)
+   ========================================================================== */
+.creedFrameBody {
+  padding: 4rem 2.5rem;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.creedQuote {
+  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
   font-weight: 500;
+  line-height: 1.65;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  max-width: 860px;
+  margin: 1.5rem auto 2rem;
+  font-style: italic;
 }
 
-a.primary {
-  background: var(--text-primary);
-  color: var(--background);
-  gap: 8px;
+.creedAuthor {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent-text);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
-a.secondary {
-  border-color: var(--button-secondary-border);
+.creedRole {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
+/* ==========================================================================
+   VALUES & DIRECTORY STROKE-DIVIDED GRIDS (2 Rows x 3 Cols)
+   ========================================================================== */
+.strokeGrid6 {
+  display: grid;
+  grid-template-columns: 1fr;
 }
 
-@media (max-width: 600px) {
-  .main {
-    padding: 48px 24px;
-  }
-
-  .intro {
-    gap: 16px;
-  }
-
-  .intro h1 {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -1.92px;
+@media (min-width: 768px) and (max-width: 1023px) {
+  .strokeGrid6 {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
-
-  .page {
-    --background: #000;
-    --foreground: #000;
-
-    --text-primary: #ededed;
-    --text-secondary: #999;
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    --button-secondary-border: #1a1a1a;
+@media (min-width: 1024px) {
+  .strokeGrid6 {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-.code {
-  font-family: var(--font-geist-mono);
-  font-size: 0.9em;
-  background: color-mix(in srgb, currentColor 8%, transparent);
-  padding: 0.1em 0.4em;
-  border-radius: 6px;
+.strokeCell {
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: transparent;
+  border-bottom: 1px solid var(--border-hairline);
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .strokeCell {
+    border-right: 1px solid var(--border-hairline);
+  }
+
+  .strokeCell:nth-child(3n) {
+    border-right: none;
+  }
+
+  .strokeCell:nth-last-child(-n+3) {
+    border-bottom: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .strokeCell:nth-child(odd) {
+    border-right: 1px solid var(--border-hairline);
+  }
+  .strokeCell:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+}
+
+.strokeCellLink {
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.strokeCellLink:hover {
+  background-color: var(--bg-card-hover);
+}
+
+/* Value Cell Elements */
+.valueTopRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.valueTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.valueDesc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* Directory Cell Elements */
+.dirHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.dirNumber {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.dirTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.45rem;
+  letter-spacing: -0.02em;
+}
+
+.dirDesc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.dirAction {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--text-primary);
+  transition: all 0.15s ease;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-hairline);
+  width: 100%;
+  justify-content: space-between;
+}
+
+.strokeCellLink:hover .dirAction {
+  color: var(--accent-text);
+}
+
+.strokeCellLink:hover .dirAction svg {
+  transform: translate(2px, -2px);
+  transition: transform 0.15s ease;
 }

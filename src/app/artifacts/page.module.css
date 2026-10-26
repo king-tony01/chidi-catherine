@@ -1,0 +1,471 @@
+.container {
+  padding: 3rem 0 5rem;
+}
+
+.sectionBlock {
+  margin-bottom: 3.5rem;
+}
+
+/* ==========================================================================
+   UNIFIED HAIRLINE FRAME CONTAINER (Matching Clinical Infrastructure)
+   ========================================================================== */
+.frameBlock {
+  border: 1px solid var(--border-hairline);
+  background-color: var(--bg-card);
+  margin-bottom: 3.5rem;
+  position: relative;
+}
+
+.frameHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  border-bottom: 1px solid var(--border-hairline);
+  padding: 2.75rem 2.25rem 2rem;
+}
+
+.sectionTitle {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 0.5rem;
+  letter-spacing: -0.03em;
+}
+
+.sectionLead {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-top: 0.65rem;
+  max-width: 760px;
+}
+
+/* Resume Layout (Seamless Frame Content) */
+.resumeBody {
+  padding: 2.75rem 2.25rem;
+}
+
+.resumeMetaStrip {
+  border-bottom: 1px solid var(--border-hairline);
+  padding-bottom: 2rem;
+  margin-bottom: 2.25rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.resumeName {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.resumeTitle {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--accent-text);
+  margin-top: 0.35rem;
+}
+
+.resumeContact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .resumeContact {
+    text-align: left;
+  }
+}
+
+.resumeSection {
+  margin-bottom: 2.25rem;
+}
+
+.resumeSectionTitle {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-hairline);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.resumeItem {
+  margin-bottom: 1.5rem;
+}
+
+.resumeItem:last-child {
+  margin-bottom: 0;
+}
+
+.itemHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.itemRole {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.itemDate {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent-text);
+}
+
+.itemOrg {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.itemBullets {
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   STROKE-DIVIDED 3-COLUMN GRID (Direct Children of Frame - Zero Gap)
+   ========================================================================== */
+.strokeGrid3 {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 992px) {
+  .strokeGrid3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.strokeCell {
+  background-color: transparent;
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-hairline);
+  position: relative;
+  transition: background-color 0.15s ease;
+}
+
+@media (min-width: 992px) {
+  .strokeCell {
+    border-bottom: none;
+    border-right: 1px solid var(--border-hairline);
+  }
+
+  .strokeCell:last-child {
+    border-right: none;
+  }
+}
+
+.cellTop {
+  display: flex;
+  flex-direction: column;
+}
+
+.cellMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.cellTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+  margin-bottom: 0.4rem;
+}
+
+.cellIssuer {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+/* Snapshot Thumbnail Box */
+.snapshotBox {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+  cursor: pointer;
+}
+
+.snapshotImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.snapshotBox:hover .snapshotImg {
+  transform: scale(1.03);
+}
+
+.snapshotOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.snapshotBox:hover .snapshotOverlay {
+  opacity: 1;
+}
+
+.snapshotOverlayText {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: rgba(14, 165, 233, 0.9);
+  padding: 0.35rem 0.75rem;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.cellDesc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+}
+
+.highlightsList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.highlightItem {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.highlightDot {
+  color: var(--accent-text);
+  font-size: 1rem;
+  line-height: 1;
+  margin-top: 0.15rem;
+}
+
+/* Action Toolbar */
+.cellActions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  border-top: 1px solid var(--border-hairline);
+  padding-top: 1.25rem;
+  margin-top: auto;
+}
+
+.actionBtnRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.viewBtn {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  background: var(--accent-surface);
+  border: 1px solid var(--accent-border);
+  color: var(--accent-text);
+  padding: 0.6rem 0.9rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border-radius: 2px;
+}
+
+.viewBtn:hover {
+  background: var(--accent-text);
+  color: #ffffff;
+}
+
+.actionLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  background: transparent;
+  border: 1px solid var(--border-hairline);
+  color: var(--text-secondary);
+  padding: 0.55rem 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  border-radius: 2px;
+}
+
+.actionLink:hover {
+  border-color: var(--border-focus);
+  color: var(--text-primary);
+  background: var(--bg-surface);
+}
+
+/* References Section */
+.refRole {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent-text);
+}
+
+.refInst {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+}
+
+.refStatus {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--text-subtle);
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-hairline);
+}
+
+/* ==========================================================================
+   DOCUMENT VIEWER MODAL
+   ========================================================================== */
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.modalContainer {
+  background: var(--bg-card);
+  border: 1px solid var(--border-hairline);
+  width: 100%;
+  max-width: 1100px;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border-hairline);
+  background: var(--bg-surface);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.modalTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.modalHeaderActions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.modalCloseBtn {
+  background: transparent;
+  border: 1px solid var(--border-hairline);
+  color: var(--text-primary);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.15s ease;
+}
+
+.modalCloseBtn:hover {
+  background: var(--accent-surface);
+  border-color: var(--accent-border);
+  color: var(--accent-text);
+}
+
+.modalBody {
+  flex: 1;
+  background: #0b1120;
+  position: relative;
+  overflow: hidden;
+}
+
+.modalIframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}

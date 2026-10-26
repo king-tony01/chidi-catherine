@@ -1,0 +1,53 @@
+.headerWrapper {
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-hairline);
+  padding: 4rem 0 3.5rem;
+  position: relative;
+  overflow: hidden;
+  background-image: var(--spotlight-glow);
+  background-size: 100% 100%;
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.breadcrumbLink {
+  color: var(--text-muted);
+  transition: color 0.15s ease;
+}
+
+.breadcrumbLink:hover {
+  color: var(--text-primary);
+}
+
+.breadcrumbCurrent {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.badgeRow {
+  margin-bottom: 1rem;
+}
+
+.title {
+  color: var(--text-primary);
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  font-weight: 800;
+  margin-bottom: 0.85rem;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 1.08rem;
+  max-width: 780px;
+  line-height: 1.7;
+}

@@ -1,0 +1,247 @@
+.pageContainer {
+  padding: 3rem 0 5rem;
+}
+
+/* Quick Nav Anchor Bar */
+.anchorBar {
+  position: sticky;
+  top: calc(var(--header-height) + 12px);
+  z-index: 100;
+  background-color: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-hairline);
+  padding: 0.6rem 1.25rem;
+  margin-bottom: 3.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.anchorLabel {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.anchorLink {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-sm);
+  transition: all 0.15s ease;
+}
+
+.anchorLink:hover {
+  background-color: var(--bg-subtle);
+  color: var(--text-primary);
+}
+
+.sectionBlock {
+  margin-bottom: 3.5rem;
+  scroll-margin-top: 110px;
+}
+
+/* ==========================================================================
+   UNIFIED HAIRLINE FRAME CONTAINER (Matching Clinical Infrastructure)
+   ========================================================================== */
+.frameBlock {
+  border: 1px solid var(--border-hairline);
+  background-color: var(--bg-card);
+  margin-bottom: 3.5rem;
+  position: relative;
+}
+
+.frameHeader {
+  border-bottom: 1px solid var(--border-hairline);
+  padding: 2.75rem 2.25rem 2rem;
+}
+
+.sectionTitle {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 0.5rem;
+  letter-spacing: -0.03em;
+}
+
+.sectionLead {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-top: 0.65rem;
+  max-width: 760px;
+}
+
+.frameBody {
+  padding: 2.75rem 2.25rem;
+}
+
+.leadProse {
+  padding: 2rem 2.25rem;
+  border-bottom: 1px solid var(--border-hairline);
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.prose {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Featured Creed Callout (Direct Child of Frame) */
+.creedBox {
+  background-color: var(--bg-subtle);
+  border-left: 3px solid var(--accent-primary);
+  border-bottom: 1px solid var(--border-hairline);
+  padding: 2.5rem 2.25rem;
+}
+
+.creedText {
+  font-size: 1.18rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+  margin-bottom: 0.85rem;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.creedAuthor {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent-text);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   STROKE-DIVIDED 3-COLUMN GRID (Direct Children of Frame)
+   ========================================================================== */
+.strokeGrid3 {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .strokeGrid3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.gridCell {
+  background-color: transparent;
+  padding: 2.5rem 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+@media (min-width: 768px) {
+  .gridCell {
+    border-bottom: none;
+    border-right: 1px solid var(--border-hairline);
+  }
+
+  .gridCell:last-child {
+    border-right: none;
+  }
+}
+
+.cellIcon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-text);
+}
+
+.cellTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.gridCell p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 0;
+}
+
+.stepNumber {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent-text);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   STROKE-DIVIDED 2x2 METAPARADIGM GRID (Direct Children of Frame)
+   ========================================================================== */
+.paradigmGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .paradigmGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.paradigmCell {
+  border-bottom: 1px solid var(--border-hairline);
+  padding: 2.5rem 2.25rem;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+@media (min-width: 768px) {
+  .paradigmCell:nth-child(odd) {
+    border-right: 1px solid var(--border-hairline);
+  }
+
+  .paradigmCell:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+}
+
+.paradigmHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+}
+
+.paradigmTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.paradigmCell p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 0;
+}

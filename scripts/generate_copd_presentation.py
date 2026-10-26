@@ -1,0 +1,1674 @@
+import os
+import sys
+import subprocess
+
+sys.stdout.reconfigure(encoding='utf-8')
+
+BASE_DIR = r"C:\Users\KingTonyTech\Desktop\Projects\nursing-portfolio"
+DOCS_DIR = os.path.join(BASE_DIR, "public", "documents")
+IMAGES_DIR = os.path.join(BASE_DIR, "public", "images", "artifacts")
+CHROME_PATH = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
+
+os.makedirs(DOCS_DIR, exist_ok=True)
+os.makedirs(IMAGES_DIR, exist_ok=True)
+
+copd_html = """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Exacerbation of a Chronic Respiratory Disease: Emphysema &amp; Chronic Bronchitis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+  
+  @page {
+    size: 11in 6.1875in;
+    margin: 0;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #080d1a;
+    color: #e2e8f0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  .slide {
+    width: 11in;
+    height: 6.1875in;
+    position: relative;
+    padding: 2.2rem 2.8rem;
+    page-break-after: always;
+    break-after: page;
+    overflow: hidden;
+    background: radial-gradient(circle at 90% 10%, rgba(20, 184, 166, 0.08) 0%, transparent 60%), #080d1a;
+    border-bottom: 1px solid #1e293b;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .slide-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .category-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #14b8a6;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+  
+  .slide-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+  }
+  
+  .slide-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: #64748b;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.25rem 0.6rem;
+    border-radius: 2px;
+  }
+  
+  .slide-body {
+    flex: 1;
+    display: flex;
+    gap: 1.6rem;
+    align-items: stretch;
+  }
+  
+  .col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  
+  .col-2 {
+    flex: 2;
+  }
+  
+  .slide-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 0.6rem;
+    font-size: 0.72rem;
+    color: #64748b;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  
+  /* Title Slide */
+  .title-slide {
+    background: radial-gradient(circle at 80% 20%, rgba(20, 184, 166, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 20% 80%, rgba(14, 165, 233, 0.1) 0%, transparent 60%),
+                #060a14;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 3rem;
+  }
+  
+  .title-pill {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #2dd4bf;
+    background: rgba(20, 184, 166, 0.12);
+    border: 1px solid rgba(20, 184, 166, 0.3);
+    padding: 0.35rem 0.9rem;
+    border-radius: 2px;
+    margin-bottom: 1.2rem;
+  }
+  
+  .main-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    max-width: 950px;
+    margin-bottom: 1rem;
+  }
+  
+  .main-subtitle {
+    font-size: 1.05rem;
+    color: #94a3b8;
+    max-width: 820px;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+  }
+  
+  .title-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+    width: 100%;
+    max-width: 900px;
+    text-align: left;
+  }
+  
+  .meta-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.2rem;
+  }
+  
+  .meta-val {
+    font-size: 0.85rem;
+    color: #e2e8f0;
+    font-weight: 600;
+  }
+  
+  /* Cards & Boxes */
+  .card {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.9rem 1.1rem;
+    border-radius: 2px;
+    margin-bottom: 0.8rem;
+  }
+  
+  .card-title {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #2dd4bf;
+    margin-bottom: 0.35rem;
+  }
+  
+  p, li {
+    font-size: 0.81rem;
+    line-height: 1.48;
+    color: #cbd5e1;
+  }
+  
+  ul {
+    margin-left: 1.2rem;
+  }
+  
+  li {
+    margin-bottom: 0.3rem;
+  }
+  
+  .highlight-box {
+    border-left: 3px solid #14b8a6;
+    padding-left: 0.9rem;
+    background: rgba(20, 184, 166, 0.06);
+    padding-top: 0.45rem;
+    padding-bottom: 0.45rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  table.clinical-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  
+  table.clinical-table th {
+    background: #0f172a;
+    color: #94a3b8;
+    text-transform: uppercase;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+    padding: 0.45rem 0.7rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  }
+  
+  table.clinical-table td {
+    padding: 0.4rem 0.7rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    color: #cbd5e1;
+  }
+  
+  table.clinical-table tr:last-child td {
+    border-bottom: none;
+  }
+  
+  .critical-high {
+    color: #f87171;
+    font-weight: 600;
+  }
+  
+  .critical-low {
+    color: #fb923c;
+    font-weight: 600;
+  }
+  
+  .img-container {
+    width: 100%;
+    height: 100%;
+    max-height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #030712;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+  }
+  
+  .img-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+</style>
+</head>
+<body>
+
+  <!-- Slide 1: Title -->
+  <div class="slide title-slide">
+    <div class="title-pill">Clinical Presentation &amp; Inpatient Case Analysis</div>
+    <h1 class="main-title">Exacerbation of a Chronic Respiratory Disease: Emphysema &amp; Chronic Bronchitis</h1>
+    <p class="main-subtitle">Evidence-based clinical assessment, controlled oxygenation titration, pharmacological rescue, non-invasive ventilation, and CNO Three-Factor RN/RPN scope delineation.</p>
+    
+    <div class="title-meta-grid">
+      <div>
+        <div class="meta-label">Author</div>
+        <div class="meta-val">Chidi Catherine Obi-Hezekiah, RPN</div>
+      </div>
+      <div>
+        <div class="meta-label">Academic Program</div>
+        <div class="meta-val">Honours BSN Candidate '27</div>
+      </div>
+      <div>
+        <div class="meta-label">Institution</div>
+        <div class="meta-val">Seneca Polytechnic</div>
+      </div>
+      <div>
+        <div class="meta-label">Clinical Guidelines</div>
+        <div class="meta-val">GOLD 2024 &amp; CNO Standards</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 2: Introduction -->
+  <div class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="category-tag">Clinical Overview</div>
+        <div class="slide-title">Introduction: COPD Spectrum &amp; RN Competencies</div>
+      </div>
+      <div class="slide-num">SLIDE 02 / 31</div>
+    </div>
+    <div class="slide-body">
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Dual Phenotypes: Emphysema vs. Chronic Bronchitis</div>
+          <p>Chronic Obstructive Pulmonary Disease (COPD) represents a heterogeneous lung condition characterized by chronic respiratory symptoms (dyspnea, cough, sputum production) due to abnormalities of the airways (bronchitis, bronchiolitis) and/or alveoli (emphysema) that cause persistent, often progressive, airflow limitation.</p>
+        </div>
+        <div class="highlight-box">
+          <p><strong>Professional Frameworks:</strong> This analysis integrates evidence-based assessment and inpatient stabilization protocols guided by the <strong>Global Initiative for Chronic Obstructive Lung Disease (GOLD 2024)</strong> and the <strong>College of Nurses of Ontario (CNO) Professional Standards</strong>.</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" style="height: 100%; display: flex; flex-direction: column;">
+          <div class="card-title">Airway &amp; Alveolar Micro-Architecture</div>
+          <div class="img-container" style="flex: 1; margin: 0.5rem 0;">
+            <img src="../images/artifacts/copd/image2.jpeg" alt="Healthy lung vs COPD lung" />
+          </div>
+          <p style="font-size: 0.78rem; color: #94a3b8;">
+            Comparison of normal patent bronchioles with the chronic inflammatory remodeling, hypersecretion, and alveolar septal breakdown seen in advanced COPD.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Chidi Catherine Obi-Hezekiah, RPN &bull; Honours BSN '27</span>
+      <span>GOLD 2024 Clinical Strategy &bull; Acute Respiratory Nursing</span>
+    </div>
+  </div>
+
+  <!-- Slide 3: Case Study Overview -->
+  <div class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="category-tag">Inpatient Case Study</div>
+        <div class="slide-title">Patient Profile: Mr. J.D. (68-Year-Old Male)</div>
+      </div>
+      <div class="slide-num">SLIDE 03 / 31</div>
+    </div>
+    <div class="slide-body">
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Admission Presentation &amp; Social Determinants</div>
+          <ul>
+            <li><strong>Patient:</strong> Mr. J.D., a 68-year-old retired construction worker.</li>
+            <li><strong>Diagnosis:</strong> Diagnosed with COPD 15 years ago; history of frequent winter hospital admissions.</li>
+            <li><strong>Living Context:</strong> Lives alone in a 2-storey home with steep stairs; limited family/social support network.</li>
+            <li><strong>Occupational History:</strong> 40-year career in industrial construction with high cumulative exposure to silica, masonry dust, and diesel exhaust.</li>
+            <li><strong>Smoking Status:</strong> 45 pack-year smoking history; quit 3 years ago following severe exacerbation.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" style="height: 100%;">
+          <div class="card-title">Reason for Emergency Admission</div>
+          <div class="highlight-box">
+            <p><strong>Acute Deterioration:</strong> Mr. J.D. presents with a 4-day history of worsening shortness of breath, severe orthopnea, productive cough with thick dark-green purulent sputum, and marked failure to mobilize at home.</p>
+          </div>
+          <div class="highlight-box">
+            <p><strong>Baseline Functional Profile:</strong> Previously able to mobilize 50 meters with rollator walker; now breathless when speaking in short 2-3 word sentences at rest.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Acute Inpatient Respiratory Case Study &bull; Seneca Polytechnic</span>
+      <span>Patient Record: Mr. J.D., 68yo Male</span>
+    </div>
+  </div>
+
+  <!-- Slide 4: Definition of COPD -->
+  <div class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="category-tag">Etiology &amp; Criteria</div>
+        <div class="slide-title">Definition of COPD (GOLD 2024 Guidelines)</div>
+      </div>
+      <div class="slide-num">SLIDE 04 / 31</div>
+    </div>
+    <div class="slide-body">
+      <div class="col">
+        <div class="card">
+          <div class="card-title">GOLD 2024 Core Definition</div>
+          <p>COPD is defined as a common, preventable, and treatable chronic lung disease characterized by chronic respiratory symptoms due to abnormalities of the airways and/or alveoli that cause persistent, often progressive, airflow limitation.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">Overlapping Pathological Phenotypes</div>
+          <ul>
+            <li><strong>Emphysema:</strong> Permanent enlargement of airspaces distal to terminal bronchioles accompanied by destruction of alveolar walls without obvious fibrosis (Halpin et al., 2021).</li>
+            <li><strong>Chronic Bronchitis:</strong> Presence of cough and sputum production for at least 3 consecutive months in each of 2 consecutive years.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" style="height: 100%; display: flex; flex-direction: column;">
+          <div class="card-title">Airflow Limitation Pathogenesis</div>
+          <div class="img-container" style="flex: 1; margin: 0.5rem 0;">
+            <img src="../images/artifacts/copd/image3.png" alt="COPD Airway Mechanism" />
+          </div>
+          <p style="font-size: 0.78rem; color: #94a3b8;">
+            Chronic inflammation leads to airway remodeling, luminal narrowing, peribronchiolar fibrosis, and loss of alveolar radial traction holding airways open during exhalation.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Global Initiative for Chronic Obstructive Lung Disease (GOLD 2024)</span>
+      <span>Diagnostic Framework &amp; Phenotypic Spectrum</span>
+    </div>
+  </div>
+
+  <!-- Slide 5: Epidemiology -->
+  <div class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="category-tag">Population Health</div>
+        <div class="slide-title">Epidemiology &amp; Global Healthcare Burden</div>
+      </div>
+      <div class="slide-num">SLIDE 05 / 31</div>
+    </div>
+    <div class="slide-body">
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Mortality &amp; Morbidity Impact</div>
+          <ul>
+            <li>COPD is currently the <strong>3rd leading cause of death worldwide</strong>, responsible for over 3.2 million deaths annually (WHO).</li>
+            <li>In Canada, COPD accounts for the highest rate of avoidable emergency department visits and inpatient hospital readmissions among chronic illnesses.</li>
+          </ul>
+        </div>
+        <div class="highlight-box">
+          <p><strong>The Exacerbation Spiral:</strong> Each severe acute exacerbation accelerates permanent lung function decline (loss of FEV1), increases cardiovascular risks (myocardial infarction, stroke), and carries an inpatient mortality rate of up to 10% (Bartlett-Pestell et al., 2023).</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" style="height: 100%; display: flex; flex-direction: column;">
+          <div class="card-title">Healthcare Economic Impact</div>
+          <div class="img-container" style="flex: 1; margin: 0.5rem 0;">
+            <img src="../images/artifacts/copd/image5.png" alt="Epidemiology Statistics" />
+          </div>
+          <p style="font-size: 0.78rem; color: #94a3b8;">
+            Over 70% of total healthcare expenditures related to COPD are directly driven by acute hospital admissions and intensive care unit (ICU) bed days.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Bartlett-Pestell et al. (2023) &bull; American Journal of Respiratory Medicine</span>
+      <span>Global Healthcare Trajectory &amp; Readmission Metrics</span>
+    </div>
+  </div>
+
+  <!-- Slide 6: Pathophysiology of Emphysema -->
+  <div class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="category-tag">Pathophysiology</div>
+        <div class="slide-title">Pathophysiology of Emphysema: Alveolar Destruction</div>
+      </div>
+      <div class="slide-num">SLIDE 06 / 31</div>
+    </div>
+    <div class="slide-body">
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Protease-Antiprotease Imbalance</div>
+          <p>Inhaled cigarette smoke and particulates recruit neutrophils and alveolar macrophages that release matrix metalloproteinases (MMPs) and neutrophil elastase, overwhelming endogenous alpha-1 antitrypsin defenses (Nasirova, 2025).</p>
+          <ul style="margin-top: 0.5rem;">
+            <li>Destruction of elastin and collagen in alveolar septa.</li>
+            <li>Confluent coalescence of alveoli into non-functional air spaces (bullae).</li>
+            <li>Reduction in capillary vascular bed and effective surface area for alveolar-capillary gas diffusion.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" style="height: 100%; display: flex; flex-direction: column;">
+          <div class="card-title">Dynamic Hyperinflation &amp; Air Trapping</div>
+          <div class="img-container" style="flex: 1; margin: 0.5rem 0;">
+            <img src="../images/artifacts/copd/image9.png" alt="Emphysema Alveolar Destruction" />
+          </div>
+          <p style="font-size: 0.78rem; color: #94a3b8;">
+            Loss of radial elastic tethering causes premature dynamic airway collapse on expiration, causing air trapping, barrel chest deformity, diaphragm flattening, and increased work of breathing.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Nasirova, G. R. (2025) &bull; Halpin et al. (2021)</span>
+      <span>Structural Patho-Histology of Lower Airways</span>
+    </div>
+  </div>
+
+  <!-- Slide 7: Chronic Bronchitis Pathophysiology -->
+  <div class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="category-tag">Pathophysiology</div>
+        <div class="slide-title">Chronic Bronchitis: Mucus Hypersecretion &amp; Inflammation</div>
+      </div>
+      <div class="slide-num">SLIDE 07 / 31</div>
+    </div>
+    <div class="slide-body">
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Goblet Cell Metaplasia &amp; Mucociliary Dysfunction</div>
+          <p>Chronic particulate irritation triggers epidermal growth factor receptor (EGFR) signaling, causing hypertrophy of submucosal tracheobronchial glands and goblet cell hyperplasia (Xu et al., 2024).</p>
+          <ul style="margin-top: 0.5rem;">
+            <li>Profuse production of tenacious mucin (MUC5AC and MUC5B).</li>
+            <li>Ciliary axoneme disruption and squamous metaplasia cripple the mucociliary escalator.</li>
+            <li>Tenacious mucus plugging in small airways (&lt;2 mm internal diameter).</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" style="height: 100%; display: flex; flex-direction: column;">
+          <div class="card-title">Luminal Narrowing &amp; Microbial Colonization</div>
+          <div class="img-container" style="flex: 1; margin: 0.5rem 0;">
+            <img src="../images/artifacts/copd/image12.jpg" alt="Chronic Bronchitis Bronchial Wall Thickening" />
+          </div>
+          <p style="font-size: 0.78rem; color: #94a3b8;">
+            Retained mucus creates an ideal nidus for chronic bacterial colonization (e.g., <em>Haemophilus influenzae</em>, <em>Streptococcus pneumoniae</em>, <em>Moraxella catarrhalis</em>).
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Xu et al. (2024) &bull; Frontiers in Immunology</span>
+      <span>Mucociliary Breakdown &amp; Bronchial Wall Remodeling</span>
+    </div>
+  </div>
+
+  <!-- Slide 8: Risk Factors -->
+  <div class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="category-tag">Etiological Drivers</div>
+        <div class="slide-title">Etiology &amp; Modifiable / Non-Modifiable Risk Factors</div>
+      </div>
+      <div class="slide-num">SLIDE 08 / 31</div>
+    </div>
+    <div class="slide-body">
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Major Environmental &amp; Lifestyle Drivers</div>
+          <ul>
+            <li><strong>Tobacco Smoke:</strong> Cigarette, cigar, pipe, cannabis, and second-hand smoke account for ~80% of COPD cases in developed nations (GOLD, 2024).</li>
+            <li><strong>Occupational Dusts &amp; Fumes:</strong> Construction, mining, industrial welding, and silica exposure increase COPD risk independent of smoking status (Mr. J.D.'s risk factor).</li>
+            <li><strong>Biomass Fuel Combustion &amp; Outdoor Smog:</strong> Indoor poorly ventilated heating and ambient particulate matter (PM2.5).</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Host Susceptibility Factors</div>
+          <ul>
+            <li><strong>Alpha-1 Antitrypsin Deficiency (AATD):</strong> Genetic SERPINA1 gene mutation leading to early-onset panacinar emphysema.</li>
+            <li><strong>Advanced Age &amp; Gender:</strong> Age-related lung senescence and differential airway reactivity.</li>
+            <li><strong>Impaired Lung Growth:</strong> Childhood respiratory infections, maternal smoking, and childhood asthma.</li>
+          </ul>
+        </div>
+        <div class="highlight-box">
+          <p><strong>Clinical Correlation for Mr. J.D.:</strong> Synergistic interaction between 45 pack-year cigarette use and 40 years of occupational silica/dust exposure accelerated his severe FEV1 loss.</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Gonzalez-Garcia et al. (2022) &bull; GOLD 2024</span>
+      <span>Occupational &amp; Environmental Epidemiology</span>
+    </div>
+  </div>
+
+  <!-- Slide 9: Chronic Clinical Presentation -->
+  <div class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="category-tag">Clinical Semiology</div>
+        <div class="slide-title">Chronic Clinical Presentation: Physical Manifestations</div>
+      </div>
+      <div class="slide-num">SLIDE 09 / 31</div>
+    </div>
+    <div class="slide-body">
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Classic Phenotypic Profiles</div>
+          <table class="clinical-table">
+            <thead>
+              <tr>
+                <th>Clinical Feature</th>
+                <th>Emphysema ("Pink Puffer")</th>
+                <th>Chronic Bronchitis ("Blue Bloater")</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Primary Symptom</strong></td>
+                <td>Severe progressive dyspnea</td>
+                <td>Chronic productive cough with heavy sputum</td>
+              </tr>
+              <tr>
+                <td><strong>Body Habitus</strong></td>
+                <td>Thin, cachectic (muscle wasting)</td>
+                <td>Often overweight, plethoric</td>
+              </tr>
+              <tr>
+                <td><strong>Thorax Exam</strong></td>
+                <td>Barrel chest (increased AP diameter)</td>
+                <td>Normal AP diameter, coarse rhonchi/wheezing</td>
+              </tr>
+              <tr>
+                <td><strong>Gas Exchange</strong></td>
+                <td>Normocapnic initially; hyperventilation</td>
+                <td>Chronic hypercapnia, hypoxemia, early cyanosis</td>
+              </tr>
+              <tr>
+                <td><strong>Cardiac Sequel</strong></td>
+                <td>Late cor pulmonale</td>
+                <td>Early cor pulmonale &amp; peripheral edema</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" style="height: 100%; display: flex; flex-direction: column;">
+          <div class="card-title">Thoracic Deformity &amp; Respiratory Posture</div>
+          <div class="img-container" style="flex: 1; margin: 0.5rem 0;">
+            <img src="../images/artifacts/copd/image15.png" alt="Clinical Presentation Signs" />
+          </div>
+          <p style="font-size: 0.78rem; color: #94a3b8;">
+            Pursed-lip breathing creates positive expiratory end-pressure (PEEP), splinting collapsible airways open; tripod position optimizes accessory muscle kinematics.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Nasirova (2025) &bull; GOLD (2024)</span>
+      <span>Comparative Phenotypic Semiology</span>
+    </div>
+  </div>
+
+  <!-- Slide 10: Chronic Phase Assessment -->
+  <div class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="category-tag">Nursing Assessment</div>
+        <div class="slide-title">Chronic Phase Assessment &amp; Functional Staging</div>
+      </div>
+      <div class="slide-num">SLIDE 10 / 31</div>
+    </div>
+    <div class="slide-body">
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Baseline Vital Signs &amp; Pulmonary Inspection</div>
+          <ul>
+            <li><strong>Respiratory Rate &amp; Pattern:</strong> Resting rate 18–22 breaths/min; prolonged expiratory phase (I:E ratio 1:3 or 1:4).</li>
+            <li><strong>Baseline Oxygen Saturation:</strong> Target SpO2 <strong>88% &ndash; 92%</strong> for carbon dioxide retainers; 92–96% for non-retainers.</li>
+            <li><strong>Accessory Muscle Use:</strong> Hypertrophy of sternocleidomastoids, scalenes, and supraclavicular indrawing.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">Validated Functional Symptom Tools</div>
+          <ul>
+            <li><strong>mMRC Dyspnea Scale:</strong> Staging exercise limitation from Grade 0 (strenuous exercise) to Grade 4 (too breathless to leave house).</li>
+            <li><strong>CAT (COPD Assessment Test):</strong> 8-item comprehensive quality of life score.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" style="height: 100%; display: flex; flex-direction: column;">
+          <div class="card-title">Functional Decline &amp; Activity Intolerance</div>
+          <div class="img-container" style="flex: 1; margin: 0.5rem 0;">
+            <img src="../images/artifacts/copd/image17.jpeg" alt="GOLD Assessment Framework" />
+          </div>
+          <p style="font-size: 0.78rem; color: #94a3b8;">
+            Routine assessment of 6-Minute Walk Test (6MWT) distance and ability to perform basic self-care activities (showering, cooking) without acute desaturation.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Petite, Hess, &amp; Wachtel (2021) &bull; Journal of Pharmacy Technology</span>
+      <span>Baseline Functional &amp; Inhaler Assessment</span>
+    </div>
+  </div>
+
+  <!-- Slide 11: Chronic Diagnostic Findings -->
+  <div class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="category-tag">Diagnostics</div>
+        <div class="slide-title">Chronic Diagnostic Findings: Spirometry &amp; Imaging</div>
+      </div>
+      <div class="slide-num">SLIDE 11 / 31</div>
+    </div>
+    <div class="slide-body">
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Spirometry: The Gold Standard Diagnostic Criterion</div>
+          <div class="highlight-box">
+            <p><strong>Post-Bronchodilator Spirometry:</strong> Fixed airflow limitation confirmed when <strong>FEV1 / FVC ratio &lt; 0.70</strong>.</p>
+          </div>
+          <p><strong>GOLD Severity Staging (based on post-BD FEV1 % predicted):</strong></p>
+          <ul style="margin-top: 0.3rem;">
+            <li><strong>GOLD 1 (Mild):</strong> FEV1 &ge; 80% predicted</li>
+            <li><strong>GOLD 2 (Moderate):</strong> 50% &le; FEV1 &lt; 80% predicted</li>
+            <li><strong>GOLD 3 (Severe):</strong> 30% &le; FEV1 &lt; 50% predicted (Mr. J.D. baseline FEV1 = 42%)</li>
+            <li><strong>GOLD 4 (Very Severe):</strong> FEV1 &lt; 30% predicted</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" style="height: 100%; display: flex; flex-direction: column;">
+          <div class="card-title">Diagnostic Imaging &amp; Arterial Blood Gas Baseline</div>
+          <div class="img-container" style="flex: 1; margin: 0.5rem 0;">
+            <img src="../images/artifacts/copd/image21.png" alt="Chest Radiograph & CT COPD" />
+          </div>
+          <p style="font-size: 0.78rem; color: #94a3b8;">
+            Chest X-ray demonstrates low flat diaphragms, hyperlucent lung fields, increased retrosternal airspace, and tubular heart silhouette.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>GOLD (2024) Guidelines &bull; American Thoracic Society</span>
+      <span>Pulmonary Function Staging &amp; Radiological Indicators</span>
+    </div>
+  </div>
+
+  <!-- Slide 12: Chronic Pharmacological Management -->
+  <div class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="category-tag">Pharmacology</div>
+        <div class="slide-title">Stable COPD Pharmacotherapy (GOLD ABE Framework)</div>
+      </div>
+      <div class="slide-num">SLIDE 12 / 31</div>
+    </div>
+    <div class="slide-body">
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Inhaled Bronchodilator Backbone</div>
+          <ul>
+            <li><strong>LAMA (Long-Acting Muscarinic Antagonist):</strong> Tiotropium, Umeclidinium. Blocks M3 receptors on airway smooth muscle, reducing vagal bronchoconstriction and mucus secretion.</li>
+            <li><strong>LABA (Long-Acting Beta-2 Agonist):</strong> Formoterol, Salmeterol, Vilanterol. Stimulates intracellular cAMP, inducing bronchial smooth muscle relaxation.</li>
+            <li><strong>Dual LAMA + LABA Therapy:</strong> First-line maintenance for symptomatic patients with dyspnea (GOLD Group B and E). Superior to monotherapy.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Inhaled Corticosteroids (ICS) &amp; Triple Therapy</div>
+          <ul>
+            <li><strong>ICS (e.g., Fluticasone, Budesonide):</strong> Indicated in combination with LABA/LAMA for patients with blood eosinophils &ge;300 cells/&mu;L or &ge;100 cells/&mu;L with &ge;2 moderate exacerbations or 1 hospitalization per year.</li>
+            <li><strong>Caution:</strong> ICS therapy increases risk of bacterial pneumonia, oral candidiasis, and osteoporosis.</li>
+          </ul>
+        </div>
+        <div class="highlight-box">
+          <p><strong>Rescue Medication:</strong> Short-acting beta-agonist (SABA: Salbutamol) PRN for immediate symptom relief.</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>GOLD (2024) Pharmacological Recommendations</span>
+      <span>Long-Acting Bronchodilation &amp; Steroid Stewardship</span>
+    </div>
+  </div>
+
+  <!-- Slide 13: Collaborative Chronic Care -->
+  <div class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="category-tag">Interprofessional Practice</div>
+        <div class="slide-title">Collaborative Chronic Care &amp; Pulmonary Rehabilitation</div>
+      </div>
+      <div class="slide-num">SLIDE 13 / 31</div>
+    </div>
+    <div class="slide-body">
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Multi-Disciplinary Care Matrix</div>
+          <ul>
+            <li><strong>Registered Nurse (RN):</strong> Care coordination, comprehensive assessment, symptom monitoring, and self-management action plan coaching.</li>
+            <li><strong>Respiratory Therapist (RT):</strong> Pulmonary function testing, arterial blood gas sampling, oxygen titration, and inhaler device technique verification.</li>
+            <li><strong>Clinical Pharmacist:</strong> Inhaler device selection based on inspiratory flow rate, medication reconciliation, and adherence evaluation.</li>
+            <li><strong>Physiotherapist:</strong> Chest physiotherapy, secretion clearance techniques, and aerobic exercise reconditioning.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" style="height: 100%; display: flex; flex-direction: column;">
+          <div class="card-title">Evidence-Based Pulmonary Rehabilitation</div>
+          <div class="img-container" style="flex: 1; margin: 0.5rem 0;">
+            <img src="../images/artifacts/copd/image24.jpeg" alt="Pulmonary Rehabilitation Program" />
+          </div>
+          <p style="font-size: 0.78rem; color: #94a3b8;">
+            Structured 8–12 week supervised exercise training reduces dyspnea, improves exercise capacity (6MWT), enhances health-related quality of life, and slashes 30-day hospital readmissions by 35%.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Sajjad et al. (2025) &bull; Professional Medical Journal</span>
+      <span>Interprofessional Synergy &amp; Non-Pharmacological Care</span>
+    </div>
+  </div>
+
+  <!-- Slide 14: Transition to Acute Exacerbation -->
+  <div class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="category-tag">Acute Decompensation</div>
+        <div class="slide-title">Transition to Acute Exacerbation (AECOPD)</div>
+      </div>
+      <div class="slide-num">SLIDE 14 / 31</div>
+    </div>
+    <div class="slide-body">
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Rome Proposal &amp; GOLD Definition of Exacerbation</div>
+          <p>An acute event characterized by worsening of the patient's respiratory symptoms that is beyond normal day-to-day variations and leads to a change in medication (GOLD, 2024).</p>
+          <ul style="margin-top: 0.5rem;">
+            <li>Acute increase in breathlessness within &le;14 days.</li>
+            <li>Often accompanied by tachypnea, tachycardia, and systemic inflammation.</li>
+            <li>Severity graded: Mild (short-acting bronchodilators only), Moderate (+ oral corticosteroids and/or antibiotics), or Severe (requires emergency department or inpatient admission).</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Anthonisen Criteria for AECOPD</div>
+          <p>The cardinal symptoms determining bacterial involvement and treatment urgency:</p>
+          <div class="highlight-box" style="margin-top: 0.4rem;">
+            <p><strong>1. Increased Dyspnea:</strong> Marked escalation in breathlessness at rest or minimal exertion.</p>
+          </div>
+          <div class="highlight-box">
+            <p><strong>2. Increased Sputum Volume:</strong> Significant increase in expectorated bronchial secretions.</p>
+          </div>
+          <div class="highlight-box">
+            <p><strong>3. Increased Sputum Purulence:</strong> Color transition from clear/white to yellow/green (indicator of neutrophil myeloperoxidase release and bacterial load).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>GOLD (2024) Strategy &bull; Rome Exacerbation Consensus</span>
+      <span>Phenotyping Acute Inpatient Deterioration</span>
+    </div>
+  </div>
+
+  <!-- Slide 15: Exacerbation Triggers -->
+  <div class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="category-tag">Etiological Triggers</div>
+        <div class="slide-title">Common Triggers of Acute Exacerbations</div>
+      </div>
+      <div class="slide-num">SLIDE 15 / 31</div>
+    </div>
+    <div class="slide-body">
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Infectious Triggers (50–70% of Cases)</div>
+          <ul>
+            <li><strong>Viral Pathogens (30–50%):</strong> Rhinovirus, Influenza A/B, Respiratory Syncytial Virus (RSV), SARS-CoV-2. Viral infections disrupt the epithelial barrier, predisposing to secondary bacterial proliferation.</li>
+            <li><strong>Bacterial Pathogens (30–50%):</strong> <em>Streptococcus pneumoniae</em>, <em>Haemophilus influenzae</em>, <em>Moraxella catarrhalis</em>, and <em>Pseudomonas aeruginosa</em> (in advanced airflow obstruction).</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Environmental &amp; Non-Infectious Triggers</div>
+          <ul>
+            <li><strong>Air Pollution Spikes:</strong> Elevated particulate matter (PM2.5, PM10), nitrogen dioxide, ozone, and sulfur dioxide.</li>
+            <li><strong>Ambient Temperature Swings:</strong> Severe winter cold dry air causing reactive bronchospasm.</li>
+            <li><strong>Medication Non-Adherence:</strong> Inadvertent cessation of maintenance inhalers or incorrect inhalation technique.</li>
+            <li><strong>Cardiac Co-Morbidities:</strong> Unrecognized left ventricular acute heart failure or pulmonary thromboembolism.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Bartlett-Pestell, Wong, &amp; Wedzicha (2025)</span>
+      <span>Infectious &amp; Environmental Pathology</span>
+    </div>
+  </div>
+
+  <!-- Slide 16: Presentation of Acute Phase -->
+  <div class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="category-tag">Inpatient Emergency</div>
+        <div class="slide-title">Acute Clinical Presentation: Mr. J.D. on Admission</div>
+      </div>
+      <div class="slide-num">SLIDE 16 / 31</div>
+    </div>
+    <div class="slide-body">
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Emergency Department Triage Findings</div>
+          <ul>
+            <li><strong>General Appearance:</strong> In severe respiratory distress, seated in forward-leaning tripod position, diaphoretic, unable to speak full sentences.</li>
+            <li><strong>Mental Status:</strong> Lethargic, anxious, but rousable to voice. Must monitor for CO2 narcosis.</li>
+            <li><strong>Skin &amp; Mucosa:</strong> Central cyanosis noted on lips and tongue; pale, cool peripheral extremities.</li>
+            <li><strong>Chest Auscultation:</strong> Markedly diminished breath sounds throughout both lung fields with diffuse bilateral expiratory wheezes and coarse rhonchi in lower bases.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Emergency Admission Vital Signs Panel</div>
+          <table class="clinical-table">
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>Mr. J.D. Value</th>
+                <th>Clinical Interpretation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Blood Pressure</strong></td>
+                <td><span class="critical-high">158/92 mmHg</span></td>
+                <td>Sympathetic nervous system surge secondary to severe acute hypoxemic stress</td>
+              </tr>
+              <tr>
+                <td><strong>Heart Rate</strong></td>
+                <td><span class="critical-high">118 bpm</span></td>
+                <td>Sinus tachycardia; compensatory cardiac response to tissue hypoxia</td>
+              </tr>
+              <tr>
+                <td><strong>Respiratory Rate</strong></td>
+                <td><span class="critical-high">32 breaths/min</span></td>
+                <td>Severe tachypnea with marked accessory muscle retractions; respiratory muscle fatigue risk</td>
+              </tr>
+              <tr>
+                <td><strong>SpO2 (Room Air)</strong></td>
+                <td><span class="critical-low">81%</span></td>
+                <td>Life-threatening arterial hypoxemia; emergency oxygen titration indicated</td>
+              </tr>
+              <tr>
+                <td><strong>Temperature</strong></td>
+                <td>38.2 &deg;C</td>
+                <td>Febrile; consistent with infectious exacerbation</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Acute Inpatient Emergency Panel &bull; Mr. J.D., 68yo Male</span>
+      <span>CNO Standard: Rapid Assessment &amp; Clinical Decision Making</span>
+    </div>
+  </div>
+
+  <!-- Slide 17: Acute Phase Assessment -->
+  <div class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="category-tag">Priority Interventions</div>
+        <div class="slide-title">Acute Priority Nursing Assessment: ABCDE Approach</div>
+      </div>
+      <div class="slide-num">SLIDE 17 / 31</div>
+    </div>
+    <div class="slide-body">
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Systematic Bedside Nursing Evaluation</div>
+          <ul>
+            <li><strong>A &ndash; Airway:</strong> Confirm airway patency; evaluate patient's ability to clear thick purulent tracheal secretions.</li>
+            <li><strong>B &ndash; Breathing:</strong> Continuous SpO2 monitoring, respiratory rate, rhythm, depth, depth of supraclavicular retractions, paradox abdominal breathing (sign of impending diaphragmatic fatigue).</li>
+            <li><strong>C &ndash; Circulation:</strong> Continuous cardiac telemetry for supraventricular tachycardias or multifocal atrial tachycardia (MAT); check peripheral pulses and capillary refill.</li>
+            <li><strong>D &ndash; Disability / Neurological:</strong> Glasgow Coma Scale (GCS) and AVPU; look for asterixis (flapping tremor), somnolence, confusion, or agitation indicating acute hypercapnic encephalopathy.</li>
+            <li><strong>E &ndash; Exposure:</strong> Temperature, peripheral edema (cor pulmonale), skin breakdown from diaphoresis.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" style="height: 100%; display: flex; flex-direction: column;">
+          <div class="card-title">Signs of Impending Respiratory Failure</div>
+          <div class="highlight-box" style="border-left-color: #ef4444; background: rgba(239, 68, 68, 0.08);">
+            <p style="font-size: 0.85rem; color: #fca5a5; font-weight: 600;">
+              RED FLAG ALERTS:
+            </p>
+            <ul style="font-size: 0.78rem; color: #fca5a5; margin-top: 0.3rem;">
+              <li>Silent chest on auscultation (minimal air movement)</li>
+              <li>Paradoxical abdominal breathing pattern</li>
+              <li>New onset drowsiness, delirium, or coma</li>
+              <li>Bradycardia or unmanageable hemodynamic instability</li>
+            </ul>
+          </div>
+          <p style="font-size: 0.78rem; color: #94a3b8; margin-top: auto;">
+            Requires immediate Medical Emergency Team (MET) / Code Blue call, respiratory therapy stat mobilization, and preparation for advanced airway.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>College of Nurses of Ontario &bull; Competencies for RNs</span>
+      <span>Priority Triage &amp; Clinical Deterioration Protocols</span>
+    </div>
+  </div>
+
+  <!-- Slide 18: Acute Diagnostic Findings -->
+  <div class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="category-tag">Diagnostic Profile</div>
+        <div class="slide-title">Arterial Blood Gas (ABG) &amp; Diagnostic Findings</div>
+      </div>
+      <div class="slide-num">SLIDE 18 / 31</div>
+    </div>
+    <div class="slide-body">
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Admission ABG Analysis (Room Air)</div>
+          <table class="clinical-table">
+            <thead>
+              <tr>
+                <th>ABG Parameter</th>
+                <th>Mr. J.D. Result</th>
+                <th>Normal Adult Range</th>
+                <th>Pathological Interpretation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>pH</strong></td>
+                <td><span class="critical-low">7.28</span></td>
+                <td>7.35 &ndash; 7.45</td>
+                <td><strong>Acute Acidemia:</strong> Decompensated respiratory acidosis</td>
+              </tr>
+              <tr>
+                <td><strong>PaCO2</strong></td>
+                <td><span class="critical-high">64 mmHg</span></td>
+                <td>35 &ndash; 45 mmHg</td>
+                <td><strong>Severe Hypercapnia:</strong> Alveolar hypoventilation &amp; dead-space ventilation</td>
+              </tr>
+              <tr>
+                <td><strong>PaO2</strong></td>
+                <td><span class="critical-low">49 mmHg</span></td>
+                <td>80 &ndash; 100 mmHg</td>
+                <td><strong>Severe Hypoxemia:</strong> Marked ventilation-perfusion (V/Q) mismatch</td>
+              </tr>
+              <tr>
+                <td><strong>HCO3&minus;</strong></td>
+                <td><span class="critical-high">31 mmol/L</span></td>
+                <td>22 &ndash; 26 mmol/L</td>
+                <td><strong>Elevated:</strong> Partial renal compensation from chronic baseline retention</td>
+              </tr>
+              <tr>
+                <td><strong>Base Excess</strong></td>
+                <td>+5 mmol/L</td>
+                <td>&minus;2 to +2 mmol/L</td>
+                <td>Consistent with underlying chronic hypercapnic compensation</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Ancillary Diagnostic Workup</div>
+          <ul>
+            <li><strong>Chest Radiograph:</strong> Bilateral hyperinflation, flattened diaphragmatic domes, increased bronchovascular markings in right lower lobe without focal consolidative lobar infiltrate.</li>
+            <li><strong>Complete Blood Count (CBC):</strong> Leukocytosis (WBC 14.8 &times;10&sup9;/L with 82% neutrophils) indicating acute infection; Hemoglobin 168 g/L (secondary polycythemia from chronic hypoxemia).</li>
+            <li><strong>12-Lead ECG:</strong> Sinus tachycardia at 116 bpm, P-pulmonale (tall peaked P-waves in lead II &gt; 2.5 mm), right axis deviation consistent with chronic pulmonary hypertension.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Gonzalez-Garcia et al. (2022) &bull; Sajjad et al. (2025)</span>
+      <span>Arterial Blood Gas &amp; Multisystem Diagnostic Panel</span>
+    </div>
+  </div>
+
+  <!-- Slide 19: Acute Pharmacologic Management -->
+  <div class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="category-tag">Acute Therapeutics</div>
+        <div class="slide-title">Acute Inpatient Pharmacological Management</div>
+      </div>
+      <div class="slide-num">SLIDE 19 / 31</div>
+    </div>
+    <div class="slide-body">
+      <div class="col">
+        <div class="card">
+          <div class="card-title">1. Inhaled Short-Acting Bronchodilators</div>
+          <p><strong>Combined SABA + SAMA Nebulization:</strong></p>
+          <ul style="margin-top: 0.3rem;">
+            <li>Salbutamol 2.5–5.0 mg + Ipratropium bromide 500 &mu;g nebulized q20min for 3 doses, then q2–4h PRN.</li>
+            <li>Driven by medical compressed air (NOT 100% oxygen) to avoid hypercapnic blunting.</li>
+            <li>Delivers rapid smooth muscle bronchodilation and reduces airway cholinergic tone.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">2. Systemic Corticosteroids</div>
+          <p><strong>Oral Prednisone 40 mg daily for 5 days:</strong> (or IV Methylprednisolone 40 mg q12h if oral route compromised). Significantly shortens recovery time, improves FEV1, reduces treatment failure and hospital stay (GOLD, 2024).</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-title">3. Targeted Antibiotic Therapy</div>
+          <p>Indicated for Mr. J.D. meeting all 3 Anthonisen criteria (increased dyspnea, sputum volume, purulence):</p>
+          <ul style="margin-top: 0.3rem;">
+            <li><strong>First-Line Regimen:</strong> Amoxicillin-clavulanic acid (Clavulin) 875/125 mg PO BID &times; 5–7 days (or Azithromycin / Doxycycline based on local antibiogram).</li>
+            <li>Ergonomically eradicates common pathogens and reduces risk of short-term relapse.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">4. Venous Thromboembolism Prophylaxis</div>
+          <p>Subcutaneous low-molecular-weight heparin (Enoxaparin 40 mg SC daily) to prevent DVT/PE in immobilized acute respiratory inpatients.</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>GOLD (2024) Guidelines &bull; Bartlett-Pestell et al. (2023)</span>
+      <span>Acute Resuscitation &amp; Pharmacotherapy Protocols</span>
+    </div>
+  </div>
+
+  <!-- Slide 20: Oxygen Therapy -->
+  <div class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="category-tag">Critical Safety</div>
+        <div class="slide-title">Controlled Oxygen Therapy: Titration to 88% &ndash; 92%</div>
+      </div>
+      <div class="slide-num">SLIDE 20 / 31</div>
+    </div>
+    <div class="slide-body">
+      <div class="col">
+        <div class="card">
+          <div class="card-title">The Target Saturation Window: 88% &ndash; 92%</div>
+          <div class="highlight-box">
+            <p><strong>Clinical Gold Standard:</strong> In patients with acute COPD exacerbation, oxygen must be prescribed and titrated as a drug to achieve a strictly controlled target SpO2 of <strong>88% to 92%</strong> (GOLD, 2024).</p>
+          </div>
+          <p>High-concentration unmonitored oxygen (e.g., 100% non-rebreather mask) carries a <strong>four-fold increase in inpatient mortality</strong> due to oxygen-induced hypercapnia and respiratory arrest.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">Optimal Delivery Interface</div>
+          <p>Nasal cannula at 1–2 L/min or Venturi Mask (24%–28% FiO2) providing precise, fixed fraction of inspired oxygen regardless of patient ventilatory pattern.</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Mechanisms of Oxygen-Induced Hypercapnia</div>
+          <ol style="margin-left: 1.2rem; font-size: 0.78rem;">
+            <li><strong>Worsening Ventilation-Perfusion (V/Q) Mismatch (Primary):</strong> Supplemental oxygen abolishes physiological hypoxic pulmonary vasoconstriction (HPV) in poorly ventilated alveoli, diverting perfusion away from well-ventilated regions and increasing alveolar dead space.</li>
+            <li><strong>The Haldane Effect:</strong> Oxygenation of deoxygenated hemoglobin reduces its affinity for CO2, displacing CO2 into free plasma and elevating arterial PaCO2.</li>
+            <li><strong>Blunting of Hypoxic Drive (Minor):</strong> Decreased peripheral carotid body chemoreceptor firing causes mild reduction in minute ventilation.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>British Thoracic Society (BTS) &bull; Sajjad et al. (2025)</span>
+      <span>Physiology of Controlled Oxygen Therapy in Hypercapnia</span>
+    </div>
+  </div>
+
+  <!-- Slide 21: Non-Invasive Ventilation -->
+  <div class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="category-tag">Advanced Respiratory Support</div>
+        <div class="slide-title">Non-Invasive Ventilation (NIV / BiPAP)</div>
+      </div>
+      <div class="slide-num">SLIDE 21 / 31</div>
+    </div>
+    <div class="slide-body">
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Clinical Indications for BiPAP in AECOPD</div>
+          <div class="highlight-box">
+            <p><strong>GOLD Criteria for Initiating NIV:</strong></p>
+            <ul style="margin-top: 0.3rem;">
+              <li>Acute respiratory acidosis: <strong>pH &le; 7.35</strong> and <strong>PaCO2 &ge; 45 mmHg</strong> despite medical therapy.</li>
+              <li>Severe dyspnea with clinical signs of respiratory muscle exhaustion (accessory muscle use, paradoxical abdominal breathing).</li>
+              <li>Persistent hypoxemia despite controlled supplemental oxygen therapy.</li>
+            </ul>
+          </div>
+          <p>Mr. J.D. (pH 7.28, PaCO2 64 mmHg, RR 32) meets strict criteria for immediate NIV initiation!</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Clinical Benefits &amp; Nursing Management</div>
+          <ul>
+            <li><strong>Outcome Benefits (Frazier et al., 2022):</strong> Reduces endotracheal intubation rates by 65%, cuts inpatient mortality by 50%, and decreases hospital length of stay.</li>
+            <li><strong>Initial Settings:</strong> IPAP (Inspiratory Positive Airway Pressure) 10–12 cmH2O; EPAP (Expiratory Positive Airway Pressure) 4–5 cmH2O; titrate IPAP up to 16–20 cmH2O based on tidal volume (6–8 mL/kg) and tolerability.</li>
+            <li><strong>Nursing Vigilance:</strong> Assess mask seal and prevent skin breakdown over nasal bridge; monitor for aspiration, gastric distention, and repeat ABG within 1–2 hours to verify PaCO2 reduction.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Frazier et al. (2022) &bull; Respiratory Medicine</span>
+      <span>NIV BiPAP Titration &amp; Critical Nursing Surveillance</span>
+    </div>
+  </div>
+
+  <!-- Slide 22: Acute Collaborative Care -->
+  <div class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="category-tag">Team Dynamics</div>
+        <div class="slide-title">Interprofessional Collaboration in Acute Stabilization</div>
+      </div>
+      <div class="slide-num">SLIDE 22 / 31</div>
+    </div>
+    <div class="slide-body">
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Collaborative Leadership in Resuscitation</div>
+          <ul>
+            <li><strong>RN Leadership:</strong> Constant bedside surveillance, hemodynamic tracking, administering IV/nebulized medications, assessing NIV compliance, coordinating urgent laboratory/imaging requests.</li>
+            <li><strong>Respiratory Therapist (RT):</strong> Calibrates and maintains BiPAP ventilator circuit, delivers specialized aerosol therapies, performs serial arterial punctures for ABG verification.</li>
+            <li><strong>Attending Physician / Hospitalist:</strong> Reviews trajectory, orders medication adjustments, evaluates criteria for Intensive Care Unit (ICU) transfer.</li>
+            <li><strong>Clinical Pharmacist:</strong> Monitors drug-drug interactions, renal dose adjustments, steroid tapering schedules.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Structured Communication &amp; Escalation (SBAR)</div>
+          <div class="highlight-box">
+            <p><strong>Situation:</strong> "Mr. J.D., 68yo with AECOPD on BiPAP, is showing worsening somnolence."</p>
+          </div>
+          <div class="highlight-box">
+            <p><strong>Background:</strong> "Admitted 4 hours ago with pH 7.28 and PaCO2 64. On IPAP 12 / EPAP 5."</p>
+          </div>
+          <div class="highlight-box">
+            <p><strong>Assessment:</strong> "Repeat ABG shows pH 7.24, PaCO2 72 mmHg. GCS has dropped to 11. He is fatiguing."</p>
+          </div>
+          <div class="highlight-box">
+            <p><strong>Recommendation:</strong> "Immediate bedside evaluation for ICU transfer and urgent intubation."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>CNO Professional Standards (2023) &bull; TeamSTEPPS</span>
+      <span>Interprofessional Escalation &amp; Crisis Resource Management</span>
+    </div>
+  </div>
+
+  <!-- Slide 23: Transition to Chronic Care -->
+  <div class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="category-tag">Discharge Continuum</div>
+        <div class="slide-title">Inpatient Stabilization &amp; Transition to Chronic Care</div>
+      </div>
+      <div class="slide-num">SLIDE 23 / 31</div>
+    </div>
+    <div class="slide-body">
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Inpatient Recovery Trajectory (Days 2–5)</div>
+          <ul>
+            <li>Successful weaning from BiPAP back to room air / low-flow nasal cannula (SpO2 88–92%).</li>
+            <li>Normalization of pH (7.38) and return of PaCO2 to baseline compensated levels (52 mmHg).</li>
+            <li>Transition from nebulized bronchodilators to hand-held pressurized Metered-Dose Inhalers (pMDIs) with valved holding chamber (spacer).</li>
+            <li>Mobility reconditioning with inpatient physical therapy.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Comprehensive Discharge Care Bundle</div>
+          <ul>
+            <li><strong>Medication Reconciliation:</strong> Complete 5-day oral prednisone course; initiate maintenance LAMA + LABA dual inhaler therapy.</li>
+            <li><strong>Teach-Back Inhaler Competency:</strong> Verify patient's inhalation technique with spacer before discharge.</li>
+            <li><strong>COPD Action Plan:</strong> Clear color-coded guide (Green = stable, Yellow = exacerbation onset / start rescue pack, Red = call 911).</li>
+            <li><strong>Follow-up Scheduling:</strong> Primary care appointment within 7–14 days and post-discharge phone check at 48 hours.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>GOLD (2024) Discharge Bundle &bull; Health Quality Ontario</span>
+      <span>Transitional Care &amp; Readmission Prevention</span>
+    </div>
+  </div>
+
+  <!-- Slide 24: RN vs RPN Scope of Practice -->
+  <div class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="category-tag">Professional Practice</div>
+        <div class="slide-title">RN vs. RPN Scope: CNO Three-Factor Framework</div>
+      </div>
+      <div class="slide-num">SLIDE 24 / 31</div>
+    </div>
+    <div class="slide-body">
+      <div class="col">
+        <div class="card">
+          <div class="card-title">The Three-Factor Framework (CNO, 2023)</div>
+          <table class="clinical-table">
+            <thead>
+              <tr>
+                <th>Factor</th>
+                <th>Registered Practical Nurse (RPN)</th>
+                <th>Registered Nurse (RN)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. Client Factors</strong></td>
+                <td>Stable condition, predictable outcomes, low risk of negative clinical shift.</td>
+                <td>Unstable, complex, unpredictable outcomes, high acuity and rapid deterioration risk.</td>
+              </tr>
+              <tr>
+                <td><strong>2. Nurse Factors</strong></td>
+                <td>Foundational knowledge in predictable scenarios; recognizes need for consultation.</td>
+                <td>Advanced critical analysis, in-depth pathophysiology, autonomous emergency leadership.</td>
+              </tr>
+              <tr>
+                <td><strong>3. Environment Factors</strong></td>
+                <td>Established policies, abundant preceptor/clinical support available.</td>
+                <td>Dynamic, high-stress environments with limited predictability and rapid change.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Clinical Application to Mr. J.D.</div>
+          <div class="highlight-box">
+            <p><strong>Acute Exacerbation Phase (Admission to Day 2):</strong> Patient is unstable, acidemic (pH 7.28), requiring acute BiPAP and continuous arterial blood gas titration. <strong>Care must be autonomously led and managed by an RN.</strong></p>
+          </div>
+          <div class="highlight-box">
+            <p><strong>Subacute / Convalescent Phase (Day 3 to Discharge):</strong> Patient is stabilized on baseline medications, vital signs predictable, outcomes anticipated. <strong>Care can safely be managed by an RPN</strong> in collaboration with the interprofessional team.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>College of Nurses of Ontario (CNO, 2023) &bull; Practice Standard</span>
+      <span>Three-Factor Framework: Decision-Making in Client Assignment</span>
+    </div>
+  </div>
+
+  <!-- Slide 25: Ethical and Safety Considerations -->
+  <div class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="category-tag">Ethics &amp; Safety</div>
+        <div class="slide-title">Ethical Dilemmas &amp; Patient Safety Considerations</div>
+      </div>
+      <div class="slide-num">SLIDE 25 / 31</div>
+    </div>
+    <div class="slide-body">
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Ethical Dimensions of Chronic Respiratory Care</div>
+          <ul>
+            <li><strong>Autonomy &amp; Advance Care Planning:</strong> Clarifying Goals of Care (GOC) and resuscitation status (DNR / Level of Intervention) during stable periods rather than in acute asphyxial crisis.</li>
+            <li><strong>Beneficence vs. Non-Maleficence:</strong> Balancing the aggressive use of invasive mechanical ventilation against patient wishes for quality of life and non-invasive comfort measures.</li>
+            <li><strong>Distributive Justice:</strong> Ensuring equitable access to home oxygen programs, expensive triple-inhaler therapy, and community rehabilitation regardless of socioeconomic status.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Patient Safety &amp; Risk Mitigation</div>
+          <div class="highlight-box">
+            <p><strong>Oxygen Fire Safety:</strong> Explicit education on open flame and smoking hazards while using supplemental home oxygen concentrators.</p>
+          </div>
+          <div class="highlight-box">
+            <p><strong>Steroid Adverse Effects:</strong> Hyperglycemia surveillance in diabetic patients, psychiatric mood alterations, and tapering protocols to avoid adrenal suppression.</p>
+          </div>
+          <div class="highlight-box">
+            <p><strong>Sedative / Opioid Precautions:</strong> Strict avoidance of unmonitored benzodiazepines or central nervous system depressants that precipitate catastrophic respiratory arrest.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>CNO Ethical Framework (2023) &bull; Canadian Nurses Association</span>
+      <span>Bioethics &amp; Clinical Safety in Chronic Illness</span>
+    </div>
+  </div>
+
+  <!-- Slide 26: Prevention Strategies -->
+  <div class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="category-tag">Preventative Health</div>
+        <div class="slide-title">Long-Term Prevention &amp; Relapse Mitigation Strategies</div>
+      </div>
+      <div class="slide-num">SLIDE 26 / 31</div>
+    </div>
+    <div class="slide-body">
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Immunization Prophylaxis (GOLD 2024)</div>
+          <ul>
+            <li><strong>Influenza Vaccine:</strong> Annual administration reduces serious illness and death in COPD patients by ~50%.</li>
+            <li><strong>Pneumococcal Conjugate (PCV20 / PCV15 + PPSV23):</strong> Protects against invasive pneumococcal bacteremia and community-acquired pneumonia.</li>
+            <li><strong>RSV Vaccine:</strong> Recommended for adults &ge;60 years with chronic cardiopulmonary conditions (Arexvy / Abrysvo).</li>
+            <li><strong>Tdap Booster &amp; COVID-19:</strong> Routine updates according to provincial guidelines.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Non-Pharmacological Relapse Reduction</div>
+          <ul>
+            <li><strong>Smoking Cessation Maintenance:</strong> Reinforce relapse prevention strategies and pharmacological adjuncts (nicotine replacement, varenicline).</li>
+            <li><strong>Environmental Adaptation:</strong> Hepa air filtration at home, avoidance of wood-burning stoves, staying indoors during ozone/smog alert days.</li>
+            <li><strong>Early Symptom Action Plan:</strong> Teach patient to recognize sputum purulence changes within 24 hours and initiate prescription rescue pack immediately.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>GOLD (2024) Guidelines &bull; Public Health Agency of Canada</span>
+      <span>Immunization &amp; Relapse Prevention Frameworks</span>
+    </div>
+  </div>
+
+  <!-- Slide 27: Case Summary -->
+  <div class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="category-tag">Synthesis</div>
+        <div class="slide-title">Case Summary &amp; Mr. J.D.'s Clinical Trajectory</div>
+      </div>
+      <div class="slide-num">SLIDE 27 / 31</div>
+    </div>
+    <div class="slide-body">
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Chronological Inpatient Milestone Summary</div>
+          <table class="clinical-table">
+            <thead>
+              <tr>
+                <th>Phase</th>
+                <th>Clinical Presentation</th>
+                <th>Intervention &amp; Outcome</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Day 1 (Admission)</strong></td>
+                <td>Severe AECOPD, pH 7.28, PaCO2 64, SpO2 81%, extreme distress.</td>
+                <td>RN-led resuscitation, nebulized SABA/SAMA, BiPAP initiation, IV steroids, controlled O2 titration.</td>
+              </tr>
+              <tr>
+                <td><strong>Day 2 (Stabilization)</strong></td>
+                <td>pH improved to 7.36, PaCO2 56, dyspnea reduced, weaned from BiPAP to NC 2 L/min.</td>
+                <td>Transitioned to oral prednisone 40 mg, antibiotics ongoing, chest physiotherapy initiated.</td>
+              </tr>
+              <tr>
+                <td><strong>Day 4 (Subacute)</strong></td>
+                <td>SpO2 91% on room air at rest, productive cough clearing, afebrile.</td>
+                <td>RPN/RN collaborative care, inhaler teach-back, mobilising 30 meters with walker.</td>
+              </tr>
+              <tr>
+                <td><strong>Day 5 (Discharge)</strong></td>
+                <td>Stable baseline, CAT score improved, comprehensive discharge bundle completed.</td>
+                <td>Discharged with LAMA/LABA inhaler, COPD action plan, home care PSW support, and pulmonary rehab referral.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Key Clinical Lessons Learned</div>
+          <div class="highlight-box">
+            <p><strong>1. Strict Oxygen Control:</strong> Keeping SpO2 88–92% prevented worsening hypercapnia and avoided invasive intubation.</p>
+          </div>
+          <div class="highlight-box">
+            <p><strong>2. Timely BiPAP Application:</strong> Early non-invasive ventilatory support rapidly reversed acute respiratory acidosis.</p>
+          </div>
+          <div class="highlight-box">
+            <p><strong>3. Interprofessional Synergy:</strong> Collaborative coordination among RN, RT, MD, and community services ensured safe continuity across the care continuum.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Patient Case Resolution &bull; Seneca Polytechnic Nursing</span>
+      <span>Comprehensive Inpatient Care Trajectory</span>
+    </div>
+  </div>
+
+  <!-- Slide 28: Conclusion -->
+  <div class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="category-tag">Scholarly Summary</div>
+        <div class="slide-title">Conclusion &amp; Core Nursing Practice Pearls</div>
+      </div>
+      <div class="slide-num">SLIDE 28 / 31</div>
+    </div>
+    <div class="slide-body">
+      <div class="col">
+        <div class="card">
+          <div class="card-title">Core Clinical Takeaways</div>
+          <ul>
+            <li><strong>COPD is a Multi-System Disease:</strong> Emphysema and chronic bronchitis combine to produce progressive airway obstruction, air trapping, and profound ventilation-perfusion mismatch.</li>
+            <li><strong>Acute Exacerbations Accelerate Mortality:</strong> Preventing, promptly identifying, and aggressively managing exacerbations is vital to preserving lung function and life expectancy.</li>
+            <li><strong>Oxygen is a Potent Medication:</strong> Must be controlled precisely (target 88%–92%) to avoid blunting physiology and inducing fatal CO2 narcosis.</li>
+            <li><strong>NIV BiPAP is First-Line Rescue:</strong> Early initiation in respiratory acidosis reduces intubations and inpatient deaths by over 50%.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-title">The Central Role of Nursing Leadership</div>
+          <div class="highlight-box">
+            <p><strong>Autonomous Assessment:</strong> Nurses serve as the primary vigilant surveillance system, recognizing subtle clinical deterioration hours before catastrophic respiratory collapse occurs.</p>
+          </div>
+          <div class="highlight-box">
+            <p><strong>CNO Scope Application:</strong> Clear discernment between RN and RPN responsibilities under the Three-Factor Framework ensures client safety and optimal healthcare resource allocation.</p>
+          </div>
+          <div class="highlight-box">
+            <p><strong>Advocacy &amp; Empowerment:</strong> Equipping patients with actionable discharge education, inhaler mastery, and community support empowers them to reclaim autonomy over chronic disease.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Chidi Catherine Obi-Hezekiah, RPN &bull; Honours BSN Candidate '27</span>
+      <span>Seneca Polytechnic &bull; Evidence-Based Nursing Practice</span>
+    </div>
+  </div>
+
+  <!-- Slide 29: References Part 1 -->
+  <div class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="category-tag">Academic Bibliography</div>
+        <div class="slide-title">References &amp; Scholarly Evidence (Part 1)</div>
+      </div>
+      <div class="slide-num">SLIDE 29 / 31</div>
+    </div>
+    <div class="slide-body">
+      <div class="col">
+        <div class="card" style="height: 100%;">
+          <div class="card-title">Primary Clinical Guidelines &amp; Studies</div>
+          <ul style="font-size: 0.78rem; line-height: 1.75;">
+            <li><strong>Bartlett-Pestell, S., Wong, T., &amp; Wedzicha, J. A. (2025).</strong> Exacerbating the Problem: Chronic Obstructive Pulmonary Disease and Atrial Fibrillation. <em>American Journal of Respiratory and Critical Care Medicine</em>, 211(5), 695–697.</li>
+            <li><strong>College of Nurses of Ontario (CNO). (2023).</strong> <em>Practice Standard: Registered Nurses and Registered Practical Nurses &ndash; A Guide to Scope of Practice and the Three-Factor Framework</em>. Toronto, ON: CNO.</li>
+            <li><strong>College of Nurses of Ontario (CNO). (2023).</strong> <em>Code of Conduct for Nurses in Ontario</em>. Toronto, ON: CNO.</li>
+            <li><strong>Frazier, W. D., DaVanzo, J. E., Dobson, A., Heath, S., &amp; Mati, K. (2022).</strong> Early initiation of non-invasive ventilation at home improves survival and reduces healthcare costs in COPD patients with chronic hypercapnic respiratory failure: a retrospective cohort study. <em>Respiratory Medicine</em>, 200, 106920.</li>
+            <li><strong>Global Initiative for Chronic Obstructive Lung Disease (GOLD). (2024).</strong> <em>Global Strategy for the Diagnosis, Management, and Prevention of Chronic Obstructive Pulmonary Disease: 2024 Report</em>. Fontana, WI: GOLD.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Bibliography Part 1 of 3 &bull; Seneca Polytechnic</span>
+      <span>APA 7th Edition Scholarly Format</span>
+    </div>
+  </div>
+
+  <!-- Slide 30: References Part 2 -->
+  <div class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="category-tag">Academic Bibliography</div>
+        <div class="slide-title">References &amp; Scholarly Evidence (Part 2)</div>
+      </div>
+      <div class="slide-num">SLIDE 30 / 31</div>
+    </div>
+    <div class="slide-body">
+      <div class="col">
+        <div class="card" style="height: 100%;">
+          <div class="card-title">Respiratory Pharmacology &amp; Pathophysiology</div>
+          <ul style="font-size: 0.78rem; line-height: 1.75;">
+            <li><strong>Gonzalez-Garcia, M., Caballero, A., Jaramillo, C., &amp; Maldonado, D. (2022).</strong> Diagnostic accuracy of spirometry and clinical criteria in COPD under-diagnosis. <em>International Journal of Chronic Obstructive Pulmonary Disease</em>, 17, 1421–1433.</li>
+            <li><strong>Halpin, D. M., Criner, G. J., Papi, A., Singh, D., Anzueto, A., Martinez, F. J., ... &amp; Vogelmeier, C. F. (2021).</strong> Global initiative for the diagnosis, management, and prevention of chronic obstructive lung disease. The 2020 GOLD science committee report on COVID-19 and chronic obstructive pulmonary disease. <em>American Journal of Respiratory and Critical Care Medicine</em>, 203(1), 24–36.</li>
+            <li><strong>Mathews, A. M. (2023).</strong> The functional and psychosocial consequences of chronic obstructive pulmonary disease. <em>Respiratory Care</em>, 68(7), 914–926.</li>
+            <li><strong>Nasirova, G. R. (2025).</strong> Understanding structural changes in the respiratory tract in chronic disease. <em>Academic Journal of Science, Technology and Education</em>, 1(6), 82–85.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Bibliography Part 2 of 3 &bull; Seneca Polytechnic</span>
+      <span>APA 7th Edition Scholarly Format</span>
+    </div>
+  </div>
+
+  <!-- Slide 31: References Part 3 -->
+  <div class="slide">
+    <div class="slide-header">
+      <div>
+        <div class="category-tag">Academic Bibliography</div>
+        <div class="slide-title">References &amp; Scholarly Evidence (Part 3)</div>
+      </div>
+      <div class="slide-num">SLIDE 31 / 31</div>
+    </div>
+    <div class="slide-body">
+      <div class="col">
+        <div class="card" style="height: 100%;">
+          <div class="card-title">Interprofessional Care &amp; Immunology</div>
+          <ul style="font-size: 0.78rem; line-height: 1.75;">
+            <li><strong>Petite, S. E., Hess, M. W., &amp; Wachtel, H. (2021).</strong> The role of the pharmacist in inhaler selection and education in chronic obstructive pulmonary disease. <em>Journal of Pharmacy Technology</em>, 37(2), 95–106.</li>
+            <li><strong>Sajjad, J., Akhtar, H., Younus, I., Sarwar, S., Iqbal, S., &amp; Rasheed, F. (2025).</strong> Comparison of arterial and venous blood gases in patients with COPD (Chronic Obstructive Pulmonary Disease) and CLD (Chronic Liver Disease). <em>The Professional Medical Journal</em>, 32(05), 540–544.</li>
+            <li><strong>Xu, J., Zeng, Q., Li, S., Su, Q., &amp; Fan, H. (2024).</strong> Inflammation mechanism and research progress of chronic obstructive pulmonary disease. <em>Frontiers in Immunology</em>, 15, 1404615.</li>
+            <li><strong>World Health Organization (WHO). (2024).</strong> <em>Chronic obstructive pulmonary disease (COPD) fact sheet</em>. Geneva: WHO.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <span>Chidi Catherine Obi-Hezekiah, RPN &bull; Honours BSN Candidate '27</span>
+      <span>Seneca Polytechnic &bull; Department of Nursing</span>
+    </div>
+  </div>
+
+</body>
+</html>
+"""
+
+copd_html_path = os.path.join(DOCS_DIR, "copd_presentation.html")
+with open(copd_html_path, "w", encoding="utf-8") as f:
+    f.write(copd_html)
+
+print("COPD HTML saved:", copd_html_path)
+
+copd_pdf_path = os.path.join(DOCS_DIR, "clinical-presentation-copd-exacerbation.pdf")
+cmd_pdf = [
+    CHROME_PATH,
+    "--headless=new",
+    "--disable-gpu",
+    "--no-pdf-header-footer",
+    f"--print-to-pdf={copd_pdf_path}",
+    f"file:///{copd_html_path.replace(os.sep, '/')}"
+]
+print("Generating COPD PDF...")
+subprocess.run(cmd_pdf, check=True)
+
+copd_png_path = os.path.join(IMAGES_DIR, "copd-presentation-preview.png")
+cmd_png = [
+    CHROME_PATH,
+    "--headless=new",
+    "--disable-gpu",
+    "--window-size=1280,720",
+    f"--screenshot={copd_png_path}",
+    f"file:///{copd_html_path.replace(os.sep, '/')}"
+]
+print("Generating COPD Snapshot Image...")
+subprocess.run(cmd_png, check=True)
+
+print("COPD PDF and Preview successfully generated!")

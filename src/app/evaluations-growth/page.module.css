@@ -1,0 +1,179 @@
+.container {
+  padding: 3rem 0 5rem;
+}
+
+.sectionBlock {
+  margin-bottom: 3.5rem;
+}
+
+/* ==========================================================================
+   UNIFIED HAIRLINE FRAME CONTAINER (Matching Clinical Infrastructure)
+   ========================================================================== */
+.frameBlock {
+  border: 1px solid var(--border-hairline);
+  background-color: var(--bg-card);
+  margin-bottom: 3.5rem;
+  position: relative;
+}
+
+.frameHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  border-bottom: 1px solid var(--border-hairline);
+  padding: 2.75rem 2.25rem 2rem;
+}
+
+.sectionTitle {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 0.5rem;
+  letter-spacing: -0.03em;
+}
+
+.sectionLead {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-top: 0.65rem;
+  max-width: 760px;
+}
+
+.frameBody {
+  padding: 2.75rem 2.25rem;
+}
+
+.prose {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--text-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* ==========================================================================
+   STROKE-DIVIDED FEEDBACK STACK (Direct Children of Frame)
+   ========================================================================== */
+.feedbackStack {
+  display: flex;
+  flex-direction: column;
+}
+
+.feedbackCell {
+  background-color: transparent;
+  border-bottom: 1px solid var(--border-hairline);
+  border-left: 3px solid var(--accent-primary);
+  padding: 2.5rem 2.25rem;
+}
+
+.feedbackCell:last-child {
+  border-bottom: none;
+}
+
+.feedbackHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed var(--border-hairline);
+}
+
+.evaluatorInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.evaluatorName {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.evaluatorTitle {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--accent-text);
+  font-weight: 500;
+}
+
+.evalQuote {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.evalContext {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   STROKE-DIVIDED 3-COLUMN PILLARS (Direct Children of Frame)
+   ========================================================================== */
+.strokeGrid3 {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .strokeGrid3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.pillarCell {
+  background-color: transparent;
+  border-bottom: 1px solid var(--border-hairline);
+  padding: 2.5rem 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .pillarCell {
+    border-bottom: none;
+    border-right: 1px solid var(--border-hairline);
+  }
+
+  .pillarCell:last-child {
+    border-right: none;
+  }
+}
+
+.growthIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-hairline);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.growthTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.pillarCell ul {
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
