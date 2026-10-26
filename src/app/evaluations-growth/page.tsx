@@ -1,12 +1,47 @@
 import React from "react";
+import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import { Sparkles, Target, Rocket } from "lucide-react";
 import styles from "./page.module.css";
 
-export const metadata = {
-  title: "Clinical Evaluations & Professional Growth | Chidi Catherine Obi-Hezekiah, RPN",
+export const metadata: Metadata = {
+  title: "Clinical Evaluations & Reflective Growth",
   description:
-    "Reflective engagement with clinical preceptor feedback from Mackenzie Health Hospital (3 Aqua) and Brampton Civic Hospital, clinical evaluation excerpts, strengths, areas for development, and growth action plans.",
+    "Reflective engagement with clinical preceptor feedback from Mackenzie Health Hospital (3 Aqua) and Brampton Civic Hospital, clinical evaluation excerpts, strengths, areas for development, and continuous improvement action plans.",
+  keywords: [
+    "Clinical Evaluations",
+    "Preceptor Feedback",
+    "Mackenzie Health 3 Aqua",
+    "Brampton Civic Hospital",
+    "CNO Reflective Practice",
+    "Nursing Strengths and Areas of Growth",
+    "Accountability and Self-Regulation",
+    "Chidi Catherine Obi-Hezekiah",
+  ],
+  alternates: {
+    canonical: "/evaluations-growth",
+  },
+  openGraph: {
+    title: "Clinical Evaluations & Reflective Growth | Chidi Catherine Obi-Hezekiah, RPN",
+    description:
+      "Analytical engagement with faculty and preceptor evaluations, demonstrating accountability, self-regulation, and continuous clinical improvement aligned with CNO standards.",
+    url: "/evaluations-growth",
+    images: [
+      {
+        url: "/images/og-banner.png",
+        width: 1200,
+        height: 630,
+        alt: "Clinical Evaluations & Reflective Growth — Chidi Catherine Obi-Hezekiah, RPN",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Clinical Evaluations & Reflective Growth | Chidi Catherine Obi-Hezekiah, RPN",
+    description:
+      "Analytical engagement with faculty and preceptor evaluations, demonstrating accountability and continuous clinical improvement.",
+    images: ["/images/og-banner.png"],
+  },
 };
 
 export default function EvaluationsGrowthPage() {

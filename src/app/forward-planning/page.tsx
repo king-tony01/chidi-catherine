@@ -1,11 +1,46 @@
 import React from "react";
+import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import styles from "./page.module.css";
 
-export const metadata = {
-  title: "Forward Planning & SMART Goals | Chidi Catherine Obi-Hezekiah, RPN",
+export const metadata: Metadata = {
+  title: "Forward Planning & SMART Goals",
   description:
-    "Future-oriented professional development, SMART learning goals for consolidation (Year 4), and strategic milestones leading to 2027 RN licensure.",
+    "Future-oriented professional development, SMART learning goals for Year 4 consolidation, NCLEX-RN exam preparation, and strategic milestones leading to 2027 RN licensure.",
+  keywords: [
+    "SMART Goals Nursing",
+    "Forward Planning",
+    "Consolidation Practicum",
+    "NCLEX-RN Preparation",
+    "Registered Nurse 2027",
+    "Seneca Honours BSN",
+    "CNO Quality Assurance",
+    "Chidi Catherine Obi-Hezekiah",
+  ],
+  alternates: {
+    canonical: "/forward-planning",
+  },
+  openGraph: {
+    title: "Forward Planning & SMART Goals | Chidi Catherine Obi-Hezekiah, RPN",
+    description:
+      "Strategic, forward-looking roadmap articulating developmental milestones, SMART learning goals, consolidation readiness, and 2027 RN licensure checkpoints.",
+    url: "/forward-planning",
+    images: [
+      {
+        url: "/images/og-banner.png",
+        width: 1200,
+        height: 630,
+        alt: "Forward Planning & SMART Goals — Chidi Catherine Obi-Hezekiah, RPN",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Forward Planning & SMART Goals | Chidi Catherine Obi-Hezekiah, RPN",
+    description:
+      "Strategic, forward-looking roadmap articulating developmental milestones, SMART learning goals, consolidation readiness, and 2027 RN licensure checkpoints.",
+    images: ["/images/og-banner.png"],
+  },
 };
 
 export default function ForwardPlanningPage() {

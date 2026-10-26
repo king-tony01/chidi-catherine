@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { nurseProfile } from "@/data/portfolioData";
@@ -17,6 +18,36 @@ import {
   Users,
   Scale,
 } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Clinical Rigour. Compassionate Care.",
+  description:
+    "Electronic Professional Nursing Portfolio of Chidi Catherine Obi-Hezekiah, RPN (CNO licensed since 2021) and Honours BSN Candidate at Seneca Polytechnic (President's Honour List Winter 2026). Specializing in acute med-surg, geriatric rehabilitation, and mental health.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Chidi Catherine Obi-Hezekiah, RPN | Clinical Rigour. Compassionate Care.",
+    description:
+      "Electronic Professional Nursing Portfolio of Chidi Catherine Obi-Hezekiah, RPN (CNO licensed since 2021) and Honours BSN Candidate at Seneca Polytechnic (President's Honour List Winter 2026). Specializing in acute med-surg, geriatric rehabilitation, and mental health.",
+    url: "/",
+    images: [
+      {
+        url: "/images/og-banner.png",
+        width: 1200,
+        height: 630,
+        alt: "Chidi Catherine Obi-Hezekiah, RPN — Professional Nursing Portfolio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Chidi Catherine Obi-Hezekiah, RPN | Clinical Rigour. Compassionate Care.",
+    description:
+      "Electronic Professional Nursing Portfolio of Chidi Catherine Obi-Hezekiah, RPN (CNO licensed since 2021) and Honours BSN Candidate at Seneca Polytechnic.",
+    images: ["/images/og-banner.png"],
+  },
+};
 
 export default function HomePage() {
   return (

@@ -1,13 +1,48 @@
 import React from "react";
+import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import { nurseProfile } from "@/data/portfolioData";
 import { Lightbulb, Compass, Award } from "lucide-react";
 import styles from "./page.module.css";
 
-export const metadata = {
-  title: "Nursing Philosophy & BAVs | Chidi Catherine Obi-Hezekiah, RPN",
+export const metadata: Metadata = {
+  title: "Nursing Philosophy & Professional Identity",
   description:
-    "Core personal nursing philosophy, Beliefs, Assumptions, and Values (BAVs), historical journey from educator to nurse, and metaparadigms of nursing.",
+    "Core personal nursing philosophy, Beliefs, Assumptions, and Values (BAVs), historical journey from educator to registered practical nurse, and nursing metaparadigms aligned with CNO standards.",
+  keywords: [
+    "Nursing Philosophy",
+    "Beliefs Assumptions Values",
+    "BAVs Nursing",
+    "Nursing Metaparadigms",
+    "Person Health Environment Nursing",
+    "Chidi Catherine Obi-Hezekiah",
+    "CNO Professional Standards",
+    "Reflective Nursing Practice",
+  ],
+  alternates: {
+    canonical: "/philosophy",
+  },
+  openGraph: {
+    title: "Nursing Philosophy & Professional Identity | Chidi Catherine Obi-Hezekiah, RPN",
+    description:
+      "Core personal nursing philosophy, Beliefs, Assumptions, and Values (BAVs), pedagogical transition, and metaparadigms aligned with CNO practice standards.",
+    url: "/philosophy",
+    images: [
+      {
+        url: "/images/og-banner.png",
+        width: 1200,
+        height: 630,
+        alt: "Nursing Philosophy — Chidi Catherine Obi-Hezekiah, RPN",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nursing Philosophy & Professional Identity | Chidi Catherine Obi-Hezekiah, RPN",
+    description:
+      "Core personal nursing philosophy, Beliefs, Assumptions, and Values (BAVs), pedagogical transition, and metaparadigms.",
+    images: ["/images/og-banner.png"],
+  },
 };
 
 export default function PhilosophyPage() {

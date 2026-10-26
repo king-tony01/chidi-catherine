@@ -1,11 +1,47 @@
 import React from "react";
+import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import styles from "./page.module.css";
 
-export const metadata = {
-  title: "Clinical Practice Overview & Settings | Chidi Catherine Obi-Hezekiah, RPN",
+export const metadata: Metadata = {
+  title: "Clinical Practice Overview & Settings",
   description:
     "Comprehensive overview of clinical practice settings, lifespan populations, practicum progression at Mackenzie Health Hospital (3 Aqua) and Brampton Civic Hospital, and 4+ years licensed RPN experience aligned with CNO standards.",
+  keywords: [
+    "Clinical Practice Nursing",
+    "Mackenzie Health Hospital",
+    "3 Aqua Med-Surg",
+    "Brampton Civic Hospital",
+    "General Medicine Practicum",
+    "RPN Clinical Experience",
+    "Honours BSN Practicum",
+    "Seneca Polytechnic Nursing",
+    "Chidi Catherine Obi-Hezekiah",
+  ],
+  alternates: {
+    canonical: "/clinical-practice",
+  },
+  openGraph: {
+    title: "Clinical Practice Overview & Settings | Chidi Catherine Obi-Hezekiah, RPN",
+    description:
+      "Synthesized, evidence-based record of clinical exposure, lifespan populations, acute med-surg progression at Mackenzie Health Hospital and Brampton Civic Hospital.",
+    url: "/clinical-practice",
+    images: [
+      {
+        url: "/images/og-banner.png",
+        width: 1200,
+        height: 630,
+        alt: "Clinical Practice Settings — Chidi Catherine Obi-Hezekiah, RPN",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Clinical Practice Overview & Settings | Chidi Catherine Obi-Hezekiah, RPN",
+    description:
+      "Synthesized, evidence-based record of clinical exposure, lifespan populations, acute med-surg progression at Mackenzie Health and Brampton Civic Hospital.",
+    images: ["/images/og-banner.png"],
+  },
 };
 
 export default function ClinicalPracticePage() {
