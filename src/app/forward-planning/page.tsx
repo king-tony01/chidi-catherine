@@ -48,8 +48,8 @@ export default function ForwardPlanningPage() {
     <>
       <PageHeader
         title="Forward Planning & SMART Goals"
-        subtitle="Strategic, forward-looking roadmap articulating developmental milestones, SMART learning goals, consolidation readiness, and planned portfolio checkpoints."
-        badgeText="Section 6 • Future-Oriented Strategy"
+        subtitle="Strategic, forward-looking roadmap articulating developmental milestones, SMART learning goals, consolidation readiness, and planned career milestones."
+        badgeText="Strategic Planning &amp; Licensure Milestones"
       />
 
       <div className={`container ${styles.container}`}>
@@ -60,7 +60,7 @@ export default function ForwardPlanningPage() {
           <div className={styles.frameBlock}>
             <div className={styles.frameHeader}>
               <div>
-                <div className="sectionEyebrow">Section 6 • Developmental Roadmap</div>
+                <div className="sectionEyebrow">Developmental Roadmap</div>
                 <h2 className={styles.sectionTitle}>Professional Development &amp; Forward Planning</h2>
                 <p className={styles.sectionLead}>
                   Moving systematically through the Seneca Honours BSN program toward high-acuity consolidation and independent entry to practice as a Registered Nurse in 2027.
@@ -104,10 +104,10 @@ export default function ForwardPlanningPage() {
                   <h3 className={styles.goalTitle}>
                     SMART Goal 1: High-Acuity Prioritization &amp; Full Caseload Management
                   </h3>
-                  <span className="specTag">TARGET: FALL 2026 (BSN 725)</span>
+                  <span className="specTag">TARGET: FALL 2026 (PRE-CONSOLIDATION)</span>
                 </div>
                 <p className={styles.goalObjective}>
-                  <strong>Objective Statement:</strong> By the conclusion of BSN 725 (Pre-Consolidation Practicum), I will independently manage, prioritize, and safely deliver comprehensive care for a full caseload of 4–5 acute medical-surgical clients within a 12-hour shift, accurately triaging care needs and executing documentation with minimal preceptor intervention.
+                  <strong>Objective Statement:</strong> Prior to entering final clinical consolidation, I will independently manage, prioritize, and safely deliver comprehensive care for a full caseload of 4–5 acute medical-surgical clients within a 12-hour shift, accurately triaging care needs and executing documentation with minimal preceptor intervention.
                 </p>
 
                 <div className={styles.breakdownGrid}>
@@ -135,7 +135,7 @@ export default function ForwardPlanningPage() {
                   <div className={styles.breakdownCell}>
                     <div className={styles.breakdownLabel}>Relevant &amp; Time-bound</div>
                     <div className={styles.breakdownText}>
-                      Essential readiness benchmark before entering full-time final consolidation (BSN 825) in early 2027.
+                      Essential readiness benchmark before entering full-time final clinical consolidation in early 2027.
                     </div>
                   </div>
                 </div>
@@ -150,7 +150,7 @@ export default function ForwardPlanningPage() {
                   <span className="specTag">TARGET: WINTER 2027 (CONSOLIDATION)</span>
                 </div>
                 <p className={styles.goalObjective}>
-                  <strong>Objective Statement:</strong> By the end of BSN 825 (Consolidation), I will routinely lead trauma-informed psychosocial evaluations and demonstrate evidence-based verbal de-escalation in high-distress patient encounters across medical and psychiatric floors, achieving zero physical restraint interventions in my assigned care.
+                  <strong>Objective Statement:</strong> By the completion of final clinical consolidation, I will routinely lead trauma-informed psychosocial evaluations and demonstrate evidence-based verbal de-escalation in high-distress patient encounters across medical and psychiatric floors, achieving zero physical restraint interventions in my assigned care.
                 </p>
 
                 <div className={styles.breakdownGrid}>
@@ -171,7 +171,7 @@ export default function ForwardPlanningPage() {
                   <div className={styles.breakdownCell}>
                     <div className={styles.breakdownLabel}>Achievable</div>
                     <div className={styles.breakdownText}>
-                      Grounded in BSN620 Mental Health coursework, non-violent crisis intervention certification, and ongoing clinical practice.
+                      Grounded in evidence-based mental health principles, non-violent crisis intervention certification, and ongoing clinical practice.
                     </div>
                   </div>
 
@@ -231,16 +231,16 @@ export default function ForwardPlanningPage() {
         </section>
 
         {/* =================================================================
-            3. STRATEGIC ROADMAP & CHECKPOINT MILESTONES (Stroke-Divided 3-Column)
+            3. STRATEGIC ROADMAP & LICENSURE MILESTONES (Stroke-Divided 3-Column)
             ================================================================= */}
         <section className={styles.sectionBlock}>
           <div className={styles.frameBlock}>
             <div className={styles.frameHeader}>
               <div>
-                <div className="sectionEyebrow">Future Checkpoint Milestones</div>
-                <h2 className={styles.sectionTitle}>Planned Portfolio Updates Across Program Stages</h2>
+                <div className="sectionEyebrow">Career &amp; Licensure Milestones</div>
+                <h2 className={styles.sectionTitle}>Strategic Milestones Leading to RN Licensure</h2>
                 <p className={styles.sectionLead}>
-                  As mandated by the BSN program guidelines, this electronic portfolio is an evolving artifact maintained across semesters.
+                  A forward-looking trajectory mapping clinical skill expansion, consolidation preceptorship, and autonomous Registered Nurse practice.
                 </p>
               </div>
             </div>
@@ -248,26 +248,26 @@ export default function ForwardPlanningPage() {
             {/* Direct 3-Column Stroke-Divided Grid */}
             <div className={styles.strokeGrid3}>
               <div className={styles.roadmapCell}>
-                <span className="specTag">CHECKPOINT 1 • FALL 2026</span>
-                <h3 className={styles.checkpointTitle}>Semester 7 (BSN 725) Integration</h3>
+                <span className="specTag">PHASE 1 • FALL 2026</span>
+                <h3 className={styles.checkpointTitle}>Advanced Acute Care Clinical Integration</h3>
                 <p className={styles.checkpointDesc}>
-                  Integrate BSN 725 high-acuity evaluation metrics, advanced skills tracking (IV push medications, central lines), and complex patient advocacy reflection.
+                  Focus on high-acuity adult inpatient care, advanced procedural skills (IV push medications, central venous access monitoring), and rapid clinical prioritization.
                 </p>
               </div>
 
               <div className={styles.roadmapCell}>
-                <span className="specTag">CHECKPOINT 2 • WINTER 2027</span>
-                <h3 className={styles.checkpointTitle}>BSN 825 Consolidation Showcase</h3>
+                <span className="specTag">PHASE 2 • WINTER 2027</span>
+                <h3 className={styles.checkpointTitle}>Clinical Consolidation Preceptorship</h3>
                 <p className={styles.checkpointDesc}>
-                  Upload final preceptor evaluation, capstone leadership clinical project, quality improvement artifact, and comprehensive self-reflection.
+                  Full-time preceptored clinical consolidation demonstrating independent patient caseload management, acute clinical leadership, and multi-team coordination.
                 </p>
               </div>
 
               <div className={styles.roadmapCell}>
-                <span className="specTag">CHECKPOINT 3 • MID 2027</span>
-                <h3 className={styles.checkpointTitle}>RN Licensure &amp; Career Transition</h3>
+                <span className="specTag">PHASE 3 • MID 2027</span>
+                <h3 className={styles.checkpointTitle}>RN Licensure &amp; Autonomous Practice</h3>
                 <p className={styles.checkpointDesc}>
-                  Update official CNO credentials to Registered Nurse (RN), publish finalized professional curriculum vitae, and compile reference dossier for acute hospital recruitment.
+                  Update official CNO credentials to Registered Nurse (RN), publish finalized professional curriculum vitae, and compile reference dossier for acute hospital practice.
                 </p>
               </div>
             </div>

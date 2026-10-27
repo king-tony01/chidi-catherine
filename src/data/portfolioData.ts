@@ -48,7 +48,6 @@ export const moreNavGroups: NavGroup[] = [
     items: [
       { label: "Clinical Overview & Progression", href: "/clinical-practice#overview" },
       { label: "Practice Settings & Populations", href: "/clinical-practice#populations" },
-      { label: "Practicum Sequence (BSN 325–825)", href: "/clinical-practice#practicum-sequence" },
     ],
   },
   {
@@ -57,7 +56,7 @@ export const moreNavGroups: NavGroup[] = [
     description: "Skills tracking list and CNO Mental Health Standards integration",
     items: [
       { label: "Clinical Skills Tracking Record", href: "/competencies-standards#skills-log" },
-      { label: "Mental Health Standards", href: "/competencies-standards#mental-health-context", badge: "BSN620" },
+      { label: "CNO Mental Health Standards", href: "/competencies-standards#mental-health-context" },
       { label: "Reflective Synthesis", href: "/competencies-standards#reflective-synthesis" },
     ],
   },
@@ -93,7 +92,6 @@ export const navigationData: NavItem[] = [
     children: [
       { label: "Clinical Overview & Progression", href: "/clinical-practice#overview" },
       { label: "Practice Settings & Populations", href: "/clinical-practice#populations" },
-      { label: "Practicum Sequence (BSN 325–825)", href: "/clinical-practice#practicum-sequence" },
     ],
   },
   {
@@ -101,7 +99,7 @@ export const navigationData: NavItem[] = [
     href: "/competencies-standards",
     children: [
       { label: "Clinical Skills Tracking Record", href: "/competencies-standards#skills-log" },
-      { label: "Section 5: Mental Health Standards (BSN620)", href: "/competencies-standards#mental-health-context", badge: "BSN620" },
+      { label: "CNO Mental Health Standards", href: "/competencies-standards#mental-health-context" },
     ],
   },
   { label: "Evaluations & Growth", href: "/evaluations-growth" },

@@ -51,7 +51,7 @@ export default function PhilosophyPage() {
       <PageHeader
         title="Nursing Philosophy & Professional Identity"
         subtitle="A foundational articulation of my core nursing creed, beliefs, assumptions, values (BAVs), pedagogical transition, and metaparadigms aligned with CNO standards."
-        badgeText="Section 1 • Foundations &amp; Metaparadigms"
+        badgeText="Foundations &amp; Metaparadigms"
       />
 
       <div className={`container ${styles.pageContainer}`}>
@@ -192,7 +192,7 @@ export default function PhilosophyPage() {
                 <span className={styles.stepNumber}>PHASE 03 • SENECA POLYTECHNIC</span>
                 <h3 className={styles.cellTitle}>Honours BSN &amp; Future RN</h3>
                 <p>
-                  Currently completing Year 2 (Semester 6 checkpoint, BSN620) of the Honours BSN program, consolidating advanced health assessment, trauma-informed psychiatric care, research methodology, and leadership toward 2027 RN licensure.
+                  Currently advancing through the Honours BSN program at Seneca Polytechnic, consolidating advanced health assessment, trauma-informed psychiatric care, research methodology, and clinical leadership toward 2027 RN licensure.
                 </p>
               </div>
             </div>

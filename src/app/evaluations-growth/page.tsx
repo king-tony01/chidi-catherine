@@ -50,7 +50,7 @@ export default function EvaluationsGrowthPage() {
       <PageHeader
         title="Clinical Evaluations & Professional Growth"
         subtitle="Analytical engagement with faculty and preceptor evaluations, demonstrating accountability, self-regulation, and continuous clinical improvement aligned with CNO standards."
-        badgeText="Section 3 • Reflective Practice"
+        badgeText="Reflective Practice &amp; Evaluative Feedback"
       />
 
       <div className={`container ${styles.container}`}>
@@ -61,7 +61,7 @@ export default function EvaluationsGrowthPage() {
           <div className={styles.frameBlock}>
             <div className={styles.frameHeader}>
               <div>
-                <div className="sectionEyebrow">Section 3 • Accountability &amp; Self-Regulation</div>
+                <div className="sectionEyebrow">Accountability &amp; Self-Regulation</div>
                 <h2 className={styles.sectionTitle}>Engagement with Clinical Evaluations</h2>
                 <p className={styles.sectionLead}>
                   Reflective practice is essential for professional nurses to bridge academic knowledge, clinical feedback, and evolving bedside competence.

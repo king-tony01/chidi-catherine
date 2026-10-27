@@ -47,29 +47,29 @@ export default function CompetenciesStandardsPage() {
     <>
       <PageHeader
         title="Clinical Skills & Professional Standards"
-        subtitle="Tracking procedural competency development alongside an in-depth mental health–informed integration of CNO Entry-to-Practice competencies for BSN620."
-        badgeText="Section 4A &amp; 5 • BSN620 Core Checkpoint"
+        subtitle="Tracking procedural competency development alongside an in-depth mental health–informed integration of CNO Entry-to-Practice competencies."
+        badgeText="Competency Tracking &amp; CNO Standards"
       />
 
       <div className={`container ${styles.container}`}>
         {/* Navigation Anchor Bar */}
         <nav className={styles.anchorBar} aria-label="Quick links">
           <span className={styles.anchorLabel}>Jump to:</span>
-          <a href="#skills-log" className={styles.anchorLink}>Clinical Skills Record (Section 4A)</a>
-          <a href="#mental-health-context" className={styles.anchorLink}>CNO Standards &amp; Mental Health Integration (Section 5)</a>
+          <a href="#skills-log" className={styles.anchorLink}>Clinical Skills Record</a>
+          <a href="#mental-health-context" className={styles.anchorLink}>CNO Standards &amp; Mental Health Integration</a>
           <a href="#reflective-synthesis" className={styles.anchorLink}>Reflective Synthesis &amp; Consolidation Readiness</a>
         </nav>
 
         {/* =================================================================
-            1. SECTION 4A: Clinical Skills and Competency Record
+            1. Clinical Skills and Competency Record
             ================================================================= */}
         <section id="skills-log" className={styles.sectionBlock}>
           <div className={styles.frameBlock}>
             <div className={styles.frameHeader}>
-              <div className="sectionEyebrow">Section 4A • Skills Inventory</div>
-              <h2 className={styles.sectionTitle}>BSN Clinical Skills &amp; Competency Tracking Record</h2>
+              <div className="sectionEyebrow">Procedural Skills Inventory</div>
+              <h2 className={styles.sectionTitle}>Clinical Skills &amp; Competency Tracking Record</h2>
               <p className={styles.sectionLead}>
-                Documenting skills introduced, practiced in clinical or laboratory simulation settings, and the level of independence achieved across the BSN curriculum.
+                Documenting skills introduced, practiced in clinical or laboratory simulation settings, and the level of independence achieved across clinical education.
               </p>
             </div>
 
@@ -105,15 +105,15 @@ export default function CompetenciesStandardsPage() {
         </section>
 
         {/* =================================================================
-            2. SECTION 5: Professional Standards - Mental Health Nursing Context
+            2. Professional Standards - Mental Health Nursing Context
             ================================================================= */}
         <section id="mental-health-context" className={styles.sectionBlock}>
           <div className={styles.frameBlock}>
             <div className={styles.frameHeader}>
-              <div className="sectionEyebrow">Section 5 • Semester 6 Checkpoint</div>
+              <div className="sectionEyebrow">Mental Health-Informed Practice</div>
               <h2 className={styles.sectionTitle}>Professional Standards &amp; Regulations: Mental Health Nursing Context</h2>
               <p className={styles.sectionLead}>
-                At the Semester 6 checkpoint for BSN620 (Mental Health Nursing), this analysis demonstrates how clinical practice aligns with College of Nurses of Ontario (CNO) Entry-to-Practice competencies using a mental health–informed lens. Mental health competencies—such as therapeutic communication, ethical judgment, self-awareness, and trauma-informed care—are foundational to all clinical domains.
+                This clinical analysis demonstrates how clinical practice aligns with College of Nurses of Ontario (CNO) Entry-to-Practice competencies using a mental health–informed lens. Mental health competencies—such as therapeutic communication, ethical judgment, self-awareness, and trauma-informed care—are foundational across all clinical domains.
               </p>
             </div>
 
@@ -138,7 +138,7 @@ export default function CompetenciesStandardsPage() {
 
                 <h4 className={styles.subSectionTitle}>B. Evidence from Clinical Practice (De-Identified)</h4>
                 <p className={styles.compParagraph}>
-                  During my psychiatric clinical placement (BSN620), I cared for a 28-year-old client diagnosed with severe bipolar I disorder experiencing an acute manic episode with severe persecutory ideation. The client paced the hallway agitation, shouting that hospital staff were collaborating with external authorities to harm them. Recognizing rising distress and physiological agitation, I engaged the client from an open, non-threatening posture at a safe distance. Using a calm, lowered vocal cadence, I validated their overwhelming emotional fear without validating the delusional content: <em>&ldquo;I can see that you are feeling intensely frightened right now, and I want you to know you are safe with me. Let&apos;s step toward the quiet lounge where we can sit down and talk.&rdquo;</em> By providing active listening, validating feelings, and offering choices (such as sitting near the window or taking deep breaths), the client&apos;s physical agitation de-escalated without the necessity of chemical or physical restraints.
+                  During my psychiatric clinical placement, I cared for a 28-year-old client diagnosed with severe bipolar I disorder experiencing an acute manic episode with severe persecutory ideation. The client paced the hallway agitation, shouting that hospital staff were collaborating with external authorities to harm them. Recognizing rising distress and physiological agitation, I engaged the client from an open, non-threatening posture at a safe distance. Using a calm, lowered vocal cadence, I validated their overwhelming emotional fear without validating the delusional content: <em>&ldquo;I can see that you are feeling intensely frightened right now, and I want you to know you are safe with me. Let&apos;s step toward the quiet lounge where we can sit down and talk.&rdquo;</em> By providing active listening, validating feelings, and offering choices (such as sitting near the window or taking deep breaths), the client&apos;s physical agitation de-escalated without the necessity of chemical or physical restraints.
                 </p>
 
                 <h4 className={styles.subSectionTitle}>C. Mental Health–Informed Analysis</h4>
@@ -166,7 +166,7 @@ export default function CompetenciesStandardsPage() {
 
                 <h4 className={styles.subSectionTitle}>B. Evidence from Clinical Practice (De-Identified)</h4>
                 <p className={styles.compParagraph}>
-                  In an acute inpatient medical unit (BSN 325), an elderly client with early cognitive decline and a severe diabetic foot ulcer insisted on leaving against medical advice (AMA), refusing required intravenous antibiotic therapy and daily dressing changes. The healthcare team was concerned about rapid sepsis. Rather than viewing the client as merely &ldquo;difficult&rdquo; or immediately pursuing capacity assessment for involuntary treatment, I applied a mental health-informed approach. I sat at eye level and conducted a focused, compassionate assessment of the client&apos;s underlying anxieties. The client broke down and shared that their partner had died in a hospital setting twenty years prior, and the sight of IV pumps triggered overwhelming panic. By validating this grief-related trauma, collaborating with the physician to adjust the administration schedule, and involving the daughter in care discussions, the client agreed to remain and receive treatment voluntarily.
+                  In an acute inpatient medical unit, an elderly client with early cognitive decline and a severe diabetic foot ulcer insisted on leaving against medical advice (AMA), refusing required intravenous antibiotic therapy and daily dressing changes. The healthcare team was concerned about rapid sepsis. Rather than viewing the client as merely &ldquo;difficult&rdquo; or immediately pursuing capacity assessment for involuntary treatment, I applied a mental health-informed approach. I sat at eye level and conducted a focused, compassionate assessment of the client&apos;s underlying anxieties. The client broke down and shared that their partner had died in a hospital setting twenty years prior, and the sight of IV pumps triggered overwhelming panic. By validating this grief-related trauma, collaborating with the physician to adjust the administration schedule, and involving the daughter in care discussions, the client agreed to remain and receive treatment voluntarily.
                 </p>
 
                 <h4 className={styles.subSectionTitle}>C. Mental Health–Informed Analysis</h4>
@@ -194,7 +194,7 @@ export default function CompetenciesStandardsPage() {
 
                 <h4 className={styles.subSectionTitle}>B. Evidence from Clinical Practice (De-Identified)</h4>
                 <p className={styles.compParagraph}>
-                  During an intake assessment in BSN620, I completed a psychosocial screening and Columbia-Suicide Severity Rating Scale (C-SSRS) with a 42-year-old recent immigrant presenting with severe major depressive disorder and somatic complaints of unyielding chronic pain. Recognizing the profound cultural stigma associated with psychiatric illness in many immigrant communities, I adapted my interview approach with cultural humility. Instead of abruptly asking psychiatric diagnostic questions, I began by asking about family dynamics, spiritual support, and their experience transitioning to Canada. The client gradually felt safe enough to disclose suicidal ideation with passive intent, rooted in feelings of shame and job loss. I immediately formulated a collaborative safety plan, consulted the preceptor and interprofessional team, and integrated a culturally aligned social work referral.
+                  During an acute psychiatric intake assessment, I completed a psychosocial screening and Columbia-Suicide Severity Rating Scale (C-SSRS) with a 42-year-old recent immigrant presenting with severe major depressive disorder and somatic complaints of unyielding chronic pain. Recognizing the profound cultural stigma associated with psychiatric illness in many immigrant communities, I adapted my interview approach with cultural humility. Instead of abruptly asking psychiatric diagnostic questions, I began by asking about family dynamics, spiritual support, and their experience transitioning to Canada. The client gradually felt safe enough to disclose suicidal ideation with passive intent, rooted in feelings of shame and job loss. I immediately formulated a collaborative safety plan, consulted the preceptor and interprofessional team, and integrated a culturally aligned social work referral.
                 </p>
 
                 <h4 className={styles.subSectionTitle}>C. Mental Health–Informed Analysis</h4>
@@ -209,13 +209,13 @@ export default function CompetenciesStandardsPage() {
               <div className="sectionEyebrow">Consolidation Readiness</div>
               <h3 className={styles.synthesisTitle}>D. Reflective Synthesis &amp; Readiness for Upper-Level Practice</h3>
               <p>
-                Reflecting on my Semester 6 checkpoint in BSN620, I recognize that mental health nursing competence has fundamentally transformed my approach to the entire nursing profession. Prior to this coursework and clinical immersion, I occasionally viewed psychiatric nursing as a distinct, specialized silo. I now understand that every patient in healthcare is a holistic being whose physical healing is intrinsically connected to their mental and emotional well-being.
+                Reflecting on my mental health nursing practice, I recognize that mental health nursing competence has fundamentally transformed my approach to the entire nursing profession. Prior to this coursework and clinical immersion, I occasionally viewed psychiatric nursing as a distinct, specialized silo. I now understand that every patient in healthcare is a holistic being whose physical healing is intrinsically connected to their mental and emotional well-being.
               </p>
               <p>
-                This clinical checkpoint forced me to confront my own assumptions and emotional reactions. In high-stress clinical environments, patient resistance or agitation can easily trigger defensive reactions in healthcare providers. Developing deep self-awareness, emotional regulation, and an understanding of trauma-informed care has equipped me to respond with curiosity and compassion rather than frustration.
+                This clinical immersion prompted me to confront my own assumptions and emotional reactions. In high-stress clinical environments, patient resistance or agitation can easily trigger defensive reactions in healthcare providers. Developing deep self-awareness, emotional regulation, and an understanding of trauma-informed care has equipped me to respond with curiosity and compassion rather than frustration.
               </p>
               <p>
-                As I prepare for Year 4 upper-level clinical practice, pre-consolidation (BSN 725), and final consolidation (BSN 825), these competencies give me the confidence to navigate complex patient situations, lead interprofessional discussions with clarity and respect, and advocate courageously for vulnerable populations as an ethical, competent Registered Nurse.
+                As I prepare for upper-level clinical practice, pre-consolidation, and final consolidation, these competencies give me the confidence to navigate complex patient situations, lead interprofessional discussions with clarity and respect, and advocate courageously for vulnerable populations as an ethical, competent Registered Nurse.
               </p>
             </div>
           </div>

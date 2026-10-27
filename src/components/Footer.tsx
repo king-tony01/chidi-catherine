@@ -47,20 +47,20 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Rubric Alignment */}
+          {/* Clinical Domains */}
           <div>
-            <h4 className={styles.footerColTitle}>Program Checkpoint</h4>
+            <h4 className={styles.footerColTitle}>Clinical Domains</h4>
             <ul className={styles.footerLinks}>
-              <li><span className={styles.footerLink}>BSN620: Mental Health Nursing</span></li>
-              <li><span className={styles.footerLink}>Semester 6 Checkpoint</span></li>
+              <li><span className={styles.footerLink}>Acute Medical-Surgical</span></li>
+              <li><span className={styles.footerLink}>Complex Continuing Care</span></li>
+              <li><span className={styles.footerLink}>Inpatient Mental Health</span></li>
               <li><span className={styles.footerLink}>CNO Entry-to-Practice</span></li>
-              <li><span className={styles.footerLink}>Therapeutic Relationships</span></li>
-              <li><span className={styles.footerLink}>Trauma-Informed Practice</span></li>
-              <li><span className={styles.footerLink}>Reflective Self-Regulation</span></li>
+              <li><span className={styles.footerLink}>Therapeutic Communication</span></li>
+              <li><span className={styles.footerLink}>Trauma-Informed Care</span></li>
             </ul>
           </div>
 
-          {/* Professionalism & Confidentiality Notice (Rubric Section 7) */}
+          {/* Professionalism & Confidentiality Notice */}
           <div>
             <div className={styles.complianceCard}>
               <div className={styles.complianceTitle}>

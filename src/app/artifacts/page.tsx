@@ -47,7 +47,7 @@ export default function ArtifactsPage() {
       <PageHeader
         title="Curriculum Vitae, Verified Artifacts & References"
         subtitle="A comprehensive professional portfolio record compiling verified clinical presentations, Seneca President's Honour List certificate, curriculum vitae, and clinical references."
-        badgeText="Section 7 • Credentials &amp; Verified Artifacts"
+        badgeText="Credentials &amp; Verified Artifacts"
       />
 
       <div className={`container ${styles.container}`}>

@@ -160,9 +160,9 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* More Sections */}
+          {/* More Pages */}
           <div>
-            <div className={styles.drawerSectionTitle}>More Portfolio Sections</div>
+            <div className={styles.drawerSectionTitle}>More Portfolio Pages</div>
             <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
               {moreNavGroups.map((group) => (
                 <div key={group.category} style={{ display: "flex", flexDirection: "column", gap: "0.3rem" }}>

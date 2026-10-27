@@ -50,7 +50,7 @@ export default function ClinicalPracticePage() {
       <PageHeader
         title="Clinical Practice Overview & Settings"
         subtitle="A synthesized, evidence-based record of clinical exposure, lifespan populations, increasing responsibility, and reflective development across Ontario healthcare environments."
-        badgeText="Section 2 &amp; 4B • Clinical Progression"
+        badgeText="Clinical Settings &amp; Patient Populations"
       />
 
       <div className={`container ${styles.container}`}>
@@ -58,17 +58,16 @@ export default function ClinicalPracticePage() {
         <nav className={styles.anchorBar} aria-label="Clinical shortcuts">
           <span className={styles.anchorLabel}>Jump to:</span>
           <a href="#overview" className={styles.anchorLink}>Clinical Overview &amp; Progression</a>
-          <a href="#populations" className={styles.anchorLink}>Practice Settings &amp; Populations (Narrative)</a>
-          <a href="#practicum-sequence" className={styles.anchorLink}>Practicum Sequence (BSN 325–825)</a>
+          <a href="#populations" className={styles.anchorLink}>Practice Settings &amp; Populations</a>
         </nav>
 
         {/* =================================================================
-            1. SECTION 2: Synthesized Clinical Practice Overview
+            1. Synthesized Clinical Practice Overview
             ================================================================= */}
         <section id="overview" className={styles.sectionBlock}>
           <div className={styles.frameBlock}>
             <div className={styles.frameHeader}>
-              <div className="sectionEyebrow">Section 2 • Synthesis of Experience</div>
+              <div className="sectionEyebrow">Clinical Progression &amp; Scope</div>
               <h2 className={styles.sectionTitle}>Clinical Practice Overview &amp; Progression</h2>
               <p className={styles.sectionLead}>
                 Demonstrating intentional progression in clinical responsibility, complexity, and role development from Registered Practical Nurse to Registered Nurse scope.
@@ -92,15 +91,15 @@ export default function ClinicalPracticePage() {
         </section>
 
         {/* =================================================================
-            2. SECTION 4B: Practice Settings and Client Population Summary
+            2. Practice Settings and Client Population Summary
             ================================================================= */}
         <section id="populations" className={styles.sectionBlock}>
           <div className={styles.frameBlock}>
             <div className={styles.frameHeader}>
-              <div className="sectionEyebrow">Section 4B • Resume-Style Narrative</div>
+              <div className="sectionEyebrow">Practice Settings &amp; Clinical Immersion</div>
               <h2 className={styles.sectionTitle}>Practice Settings &amp; Client Population Summary</h2>
               <p className={styles.sectionLead}>
-                Presented in continuous professional narrative format without tables or bullet points, in strict compliance with the BSN portfolio rubric guidelines.
+                Detailed narrative reflections across acute hospital placements, complex continuing care, and specialized clinical settings.
               </p>
             </div>
 
@@ -167,128 +166,6 @@ export default function ClinicalPracticePage() {
                 <p className={styles.narrativeText}>
                   Leveraging Crisis Prevention Intervention (CPI) and Gentle Persuasive Approaches (GPA), I have averted behavioral escalations through empathetic presence, active listening, and calm de-escalation without physical or chemical restraints. These experiences affirmed that mental health competence, emotional attunement, and trauma-informed safety are essential foundations that elevate the compassion and efficacy of every nursing interaction across all clinical domains.
                 </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* =================================================================
-            3. PRACTICUM SEQUENCE OVERVIEW (3x2 Stroke-Divided Grid)
-            ================================================================= */}
-        <section id="practicum-sequence" className={styles.sectionBlock}>
-          <div className={styles.frameBlock}>
-            <div className={styles.frameHeader}>
-              <div className="sectionEyebrow">Academic Progression</div>
-              <h2 className={styles.sectionTitle}>Honours BSN Practicum Sequence (BSN 325–825)</h2>
-              <p className={styles.sectionLead}>
-                Mapping the eight-semester clinical curriculum at Seneca Polytechnic leading toward final consolidation and independent professional practice.
-              </p>
-            </div>
-
-            {/* Direct 3x2 Stroke-Divided Grid */}
-            <div className={styles.strokeGrid6}>
-              <div className={styles.practicumCell}>
-                <div>
-                  <div className={styles.cardTop}>
-                    <span className={styles.cardCode}>BSN 325</span>
-                    <span className="specTag">COMPLETED</span>
-                  </div>
-                  <h3 className={styles.cardTitle}>Professional Practicum I</h3>
-                  <p className={styles.cardDesc}>
-                    Foundations of acute medical-surgical adult care, physical head-to-toe assessment, aseptic technique, basic medication administration, and vital signs monitoring.
-                  </p>
-                </div>
-                <div className={styles.cardFooter}>
-                  <span>144 Hours • Acute Care</span>
-                  <span className="monoLabel">Satisfactory</span>
-                </div>
-              </div>
-
-              <div className={styles.practicumCell}>
-                <div>
-                  <div className={styles.cardTop}>
-                    <span className={styles.cardCode}>BSN 425</span>
-                    <span className="specTag">COMPLETED</span>
-                  </div>
-                  <h3 className={styles.cardTitle}>Professional Practicum II</h3>
-                  <p className={styles.cardDesc}>
-                    Gerontological and complex continuing care, rehabilitation, multi-morbid chronic disease management, fall prevention, and collaborative care planning.
-                  </p>
-                </div>
-                <div className={styles.cardFooter}>
-                  <span>144 Hours • Complex Care</span>
-                  <span className="monoLabel">Satisfactory</span>
-                </div>
-              </div>
-
-              <div className={styles.practicumCell}>
-                <div>
-                  <div className={styles.cardTop}>
-                    <span className={styles.cardCode}>BSN 525</span>
-                    <span className="specTag">COMPLETED</span>
-                  </div>
-                  <h3 className={styles.cardTitle}>Professional Practicum III</h3>
-                  <p className={styles.cardDesc}>
-                    Specialized community and population health nursing, social determinants of health advocacy, public health initiatives, and health promotion across diverse groups.
-                  </p>
-                </div>
-                <div className={styles.cardFooter}>
-                  <span>144 Hours • Community</span>
-                  <span className="monoLabel">Satisfactory</span>
-                </div>
-              </div>
-
-              <div className={`${styles.practicumCell} ${styles.practicumCellActive}`}>
-                <div>
-                  <div className={styles.cardTop}>
-                    <span className={styles.cardCode}>BSN 620 / 625</span>
-                    <span className="specTag" style={{ color: "var(--accent-text)", borderColor: "var(--accent-border)" }}>
-                      ACTIVE CHECKPOINT
-                    </span>
-                  </div>
-                  <h3 className={styles.cardTitle}>Mental Health Nursing Practicum</h3>
-                  <p className={styles.cardDesc}>
-                    Inpatient and community psychiatric nursing, therapeutic communication, de-escalation, suicide risk assessment, recovery-oriented approaches, and trauma-informed care.
-                  </p>
-                </div>
-                <div className={styles.cardFooter}>
-                  <span>160 Hours • Mental Health</span>
-                  <span className="monoLabel" style={{ color: "var(--accent-text)" }}>Semester 6 Checkpoint</span>
-                </div>
-              </div>
-
-              <div className={styles.practicumCell}>
-                <div>
-                  <div className={styles.cardTop}>
-                    <span className={styles.cardCode}>BSN 725</span>
-                    <span className="specTag">UPCOMING</span>
-                  </div>
-                  <h3 className={styles.cardTitle}>Pre-Consolidation Practicum</h3>
-                  <p className={styles.cardDesc}>
-                    Advanced acute care nursing, high-acuity patient assignment management, prioritization of unstable patients, and transition to independent clinical decision-making.
-                  </p>
-                </div>
-                <div className={styles.cardFooter}>
-                  <span>180 Hours • High Acuity</span>
-                  <span className="monoLabel">Semester 7 (Year 4)</span>
-                </div>
-              </div>
-
-              <div className={styles.practicumCell}>
-                <div>
-                  <div className={styles.cardTop}>
-                    <span className={styles.cardCode}>BSN 825</span>
-                    <span className="specTag">CAPSTONE</span>
-                  </div>
-                  <h3 className={styles.cardTitle}>Final Consolidation Practicum</h3>
-                  <p className={styles.cardDesc}>
-                    Full-time preceptored clinical immersion consolidating all Entry-to-Practice competencies, autonomous caseload management, and transition into licensed RN practice.
-                  </p>
-                </div>
-                <div className={styles.cardFooter}>
-                  <span>450 Hours • Preceptorship</span>
-                  <span className="monoLabel">Graduation 2027</span>
-                </div>
               </div>
             </div>
           </div>

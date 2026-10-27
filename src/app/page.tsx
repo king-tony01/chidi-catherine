@@ -518,9 +518,9 @@ export default function HomePage() {
             <div className={styles.infraHeader}>
               <div className={styles.infraHeaderLeft}>
                 <div className="sectionEyebrow">PORTFOLIO DIRECTORY</div>
-                <h2 className={styles.sectionTitle}>Structured Evaluation Pathways</h2>
+                <h2 className={styles.sectionTitle}>Clinical Practice &amp; Professional Portals</h2>
                 <p className={styles.sectionSubtitle}>
-                  Organized to meet the Honours BSN Electronic Portfolio guidelines and CNO Entry-to-Practice expectations.
+                  Explore comprehensive clinical practice records, competencies, evaluative reflections, and verified credentials.
                 </p>
               </div>
             </div>
@@ -529,7 +529,7 @@ export default function HomePage() {
               <Link href="/philosophy" className={`${styles.strokeCell} ${styles.strokeCellLink}`}>
                 <div>
                   <div className={styles.dirHeader}>
-                    <span className={styles.dirNumber}>SECTION 01</span>
+                    <span className={styles.dirNumber}>01</span>
                     <span className="specTag">Foundational</span>
                   </div>
                   <h3 className={styles.dirTitle}>Philosophy &amp; Identity</h3>
@@ -538,7 +538,7 @@ export default function HomePage() {
                   </p>
                 </div>
                 <div className={styles.dirAction}>
-                  <span>Explore Section</span>
+                  <span>Explore Philosophy</span>
                   <ArrowUpRight size={14} />
                 </div>
               </Link>
@@ -546,16 +546,16 @@ export default function HomePage() {
               <Link href="/clinical-practice" className={`${styles.strokeCell} ${styles.strokeCellLink}`}>
                 <div>
                   <div className={styles.dirHeader}>
-                    <span className={styles.dirNumber}>SECTIONS 02 &amp; 04B</span>
+                    <span className={styles.dirNumber}>02</span>
                     <span className="specTag">Clinical Record</span>
                   </div>
                   <h3 className={styles.dirTitle}>Practice Settings &amp; Populations</h3>
                   <p className={styles.dirDesc}>
-                    Synthesized narrative overview of acute medical-surgical, complex continuing care, and mental health placements (BSN 325–825).
+                    Synthesized narrative overview of acute medical-surgical, complex continuing care, and inpatient mental health practice.
                   </p>
                 </div>
                 <div className={styles.dirAction}>
-                  <span>Explore Section</span>
+                  <span>Explore Practice Settings</span>
                   <ArrowUpRight size={14} />
                 </div>
               </Link>
@@ -563,8 +563,8 @@ export default function HomePage() {
               <Link href="/competencies-standards" className={`${styles.strokeCell} ${styles.strokeCellLink}`}>
                 <div>
                   <div className={styles.dirHeader}>
-                    <span className={styles.dirNumber}>SECTIONS 04A &amp; 05</span>
-                    <span className="specTag">BSN620 Focus</span>
+                    <span className={styles.dirNumber}>03</span>
+                    <span className="specTag">CNO Standards</span>
                   </div>
                   <h3 className={styles.dirTitle}>Skills Log &amp; Standards</h3>
                   <p className={styles.dirDesc}>
@@ -572,7 +572,7 @@ export default function HomePage() {
                   </p>
                 </div>
                 <div className={styles.dirAction}>
-                  <span>Explore Section</span>
+                  <span>Explore Competencies</span>
                   <ArrowUpRight size={14} />
                 </div>
               </Link>
@@ -580,7 +580,7 @@ export default function HomePage() {
               <Link href="/evaluations-growth" className={`${styles.strokeCell} ${styles.strokeCellLink}`}>
                 <div>
                   <div className={styles.dirHeader}>
-                    <span className={styles.dirNumber}>SECTION 03</span>
+                    <span className={styles.dirNumber}>04</span>
                     <span className="specTag">Reflective</span>
                   </div>
                   <h3 className={styles.dirTitle}>Evaluations &amp; Growth</h3>
@@ -589,7 +589,7 @@ export default function HomePage() {
                   </p>
                 </div>
                 <div className={styles.dirAction}>
-                  <span>Explore Section</span>
+                  <span>Explore Evaluations</span>
                   <ArrowUpRight size={14} />
                 </div>
               </Link>
@@ -597,7 +597,7 @@ export default function HomePage() {
               <Link href="/forward-planning" className={`${styles.strokeCell} ${styles.strokeCellLink}`}>
                 <div>
                   <div className={styles.dirHeader}>
-                    <span className={styles.dirNumber}>SECTION 06</span>
+                    <span className={styles.dirNumber}>05</span>
                     <span className="specTag">Developmental</span>
                   </div>
                   <h3 className={styles.dirTitle}>Forward Planning &amp; SMART Goals</h3>
@@ -606,7 +606,7 @@ export default function HomePage() {
                   </p>
                 </div>
                 <div className={styles.dirAction}>
-                  <span>Explore Section</span>
+                  <span>Explore Planning</span>
                   <ArrowUpRight size={14} />
                 </div>
               </Link>
@@ -614,7 +614,7 @@ export default function HomePage() {
               <Link href="/artifacts" className={`${styles.strokeCell} ${styles.strokeCellLink}`}>
                 <div>
                   <div className={styles.dirHeader}>
-                    <span className={styles.dirNumber}>SECTION 07</span>
+                    <span className={styles.dirNumber}>06</span>
                     <span className="specTag">Credentials</span>
                   </div>
                   <h3 className={styles.dirTitle}>Curriculum Vitae &amp; Artifacts</h3>
@@ -623,7 +623,7 @@ export default function HomePage() {
                   </p>
                 </div>
                 <div className={styles.dirAction}>
-                  <span>Explore Section</span>
+                  <span>View Artifacts &amp; CV</span>
                   <ArrowUpRight size={14} />
                 </div>
               </Link>
