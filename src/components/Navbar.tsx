@@ -31,7 +31,7 @@ export default function Navbar() {
             <span className={styles.brandName}>{nurseProfile.name}</span>
           </Link>
 
-          {/* Desktop Nav - Exactly 4 items */}
+          {/* Desktop Nav */}
           <nav className={styles.desktopNav} aria-label="Main Navigation">
             {/* 1. Home */}
             <Link
@@ -41,7 +41,15 @@ export default function Navbar() {
               <span>Home</span>
             </Link>
 
-            {/* 2. Forward Planning */}
+            {/* 2. Awards & Honours */}
+            <Link
+              href="/awards"
+              className={`${styles.navLink} ${pathname === "/awards" ? styles.navLinkActive : ""}`}
+            >
+              <span>Awards &amp; Honours</span>
+            </Link>
+
+            {/* 3. Forward Planning */}
             <Link
               href="/forward-planning"
               className={`${styles.navLink} ${pathname === "/forward-planning" ? styles.navLinkActive : ""}`}
@@ -49,7 +57,7 @@ export default function Navbar() {
               <span>Forward Planning</span>
             </Link>
 
-            {/* 3. Artifacts & Resume */}
+            {/* 4. Artifacts & Resume */}
             <Link
               href="/artifacts"
               className={`${styles.navLink} ${pathname === "/artifacts" ? styles.navLinkActive : ""}`}
@@ -57,7 +65,7 @@ export default function Navbar() {
               <span>Artifacts &amp; Resume</span>
             </Link>
 
-            {/* 4. More (Structured Dropdown) */}
+            {/* 5. More (Structured Dropdown) */}
             <div className={styles.navItemWrapper}>
               <button
                 type="button"
@@ -141,6 +149,14 @@ export default function Navbar() {
               onClick={() => setMobileOpen(false)}
             >
               <span>Home</span>
+            </Link>
+
+            <Link
+              href="/awards"
+              className={`${styles.drawerLink} ${pathname === "/awards" ? styles.drawerLinkActive : ""}`}
+              onClick={() => setMobileOpen(false)}
+            >
+              <span>Awards &amp; Honours</span>
             </Link>
 
             <Link

@@ -290,8 +290,8 @@ export default function HomePage() {
                 </div>
 
                 <div className={styles.cardActionRow}>
-                  <Link href="/artifacts" className={styles.cardActionLink}>
-                    <span>View Certificate &amp; Artifacts</span>
+                  <Link href="/awards" className={styles.cardActionLink}>
+                    <span>View Honours &amp; Distinction</span>
                     <ArrowUpRight size={14} />
                   </Link>
                 </div>
@@ -594,10 +594,27 @@ export default function HomePage() {
                 </div>
               </Link>
 
-              <Link href="/forward-planning" className={`${styles.strokeCell} ${styles.strokeCellLink}`}>
+              <Link href="/awards" className={`${styles.strokeCell} ${styles.strokeCellLink}`}>
                 <div>
                   <div className={styles.dirHeader}>
                     <span className={styles.dirNumber}>05</span>
+                    <span className="specTag">Distinction</span>
+                  </div>
+                  <h3 className={styles.dirTitle}>Awards &amp; Honours</h3>
+                  <p className={styles.dirDesc}>
+                    Official Seneca Polytechnic President&apos;s Honour List recognition for superior academic scholarship in nursing.
+                  </p>
+                </div>
+                <div className={styles.dirAction}>
+                  <span>View Awards</span>
+                  <ArrowUpRight size={14} />
+                </div>
+              </Link>
+
+              <Link href="/forward-planning" className={`${styles.strokeCell} ${styles.strokeCellLink}`}>
+                <div>
+                  <div className={styles.dirHeader}>
+                    <span className={styles.dirNumber}>06</span>
                     <span className="specTag">Developmental</span>
                   </div>
                   <h3 className={styles.dirTitle}>Forward Planning &amp; SMART Goals</h3>
@@ -614,7 +631,7 @@ export default function HomePage() {
               <Link href="/artifacts" className={`${styles.strokeCell} ${styles.strokeCellLink}`}>
                 <div>
                   <div className={styles.dirHeader}>
-                    <span className={styles.dirNumber}>06</span>
+                    <span className={styles.dirNumber}>07</span>
                     <span className="specTag">Credentials</span>
                   </div>
                   <h3 className={styles.dirTitle}>Curriculum Vitae &amp; Artifacts</h3>

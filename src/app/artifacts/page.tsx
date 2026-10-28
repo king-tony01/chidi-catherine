@@ -45,8 +45,8 @@ export default function ArtifactsPage() {
   return (
     <>
       <PageHeader
-        title="Curriculum Vitae, Verified Artifacts & References"
-        subtitle="A comprehensive professional portfolio record compiling verified clinical presentations, Seneca President's Honour List certificate, curriculum vitae, and clinical references."
+        title="Curriculum Vitae, Verified Artifacts &amp; References"
+        subtitle="A comprehensive professional portfolio record compiling verified clinical presentations, curriculum vitae, and clinical references."
         badgeText="Credentials &amp; Verified Artifacts"
       />
 
@@ -270,22 +270,22 @@ export default function ArtifactsPage() {
         </section>
 
         {/* =================================================================
-            2. ACADEMIC & CLINICAL ARTIFACTS SECTION (Stroke-Divided 3-Column)
+            2. CLINICAL ARTIFACTS SECTION (Stroke-Divided 2-Column Grid)
             ================================================================= */}
         <section className={styles.sectionBlock}>
           <div className={styles.frameBlock}>
             <div className={styles.frameHeader}>
               <div>
-                <div className="sectionEyebrow">Verified Academic &amp; Clinical Documents</div>
-                <h2 className={styles.sectionTitle}>Academic Projects &amp; Evidence-Based Artifacts</h2>
+                <div className="sectionEyebrow">Clinical Presentations &amp; Inquiries</div>
+                <h2 className={styles.sectionTitle}>Clinical Case Studies &amp; Evidence-Based Presentations</h2>
                 <p className={styles.sectionLead}>
-                  Authentic clinical presentations and institutional distinctions submitted by Chidi Catherine Obi-Hezekiah. Each document includes high-resolution snapshot previews, an interactive in-page viewer, and direct PDF download links.
+                  Authentic clinical presentations authored and delivered by Chidi Catherine Obi-Hezekiah. Each document includes high-resolution snapshot previews, an interactive in-page viewer, and direct PDF download links.
                 </p>
               </div>
             </div>
 
-            {/* Direct 3-Column Stroke-Divided Grid (Touching Frame Edges) */}
-            <div className={styles.strokeGrid3}>
+            {/* Direct 2-Column Stroke-Divided Grid (Touching Frame Edges) */}
+            <div className={styles.strokeGrid2}>
               {verifiedArtifacts.map((artifact) => (
                 <div key={artifact.id} className={styles.strokeCell}>
                   <div className={styles.cellTop}>

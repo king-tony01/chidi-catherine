@@ -1,0 +1,316 @@
+.container {
+  padding-top: 2rem;
+  padding-bottom: 5rem;
+}
+
+.sectionBlock {
+  margin-bottom: 3.5rem;
+}
+
+.sectionBlock:last-child {
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   UNIFIED FRAME BLOCK (0 Radius, Hairline Border, Touching Children)
+   ========================================================================== */
+.frameBlock {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  position: relative;
+}
+
+.frameHeader {
+  padding: 2.5rem;
+  border-bottom: 1px solid var(--border-hairline);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.sectionTitle {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  margin-top: 0.35rem;
+  margin-bottom: 0.5rem;
+}
+
+.sectionLead {
+  font-size: 1.02rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  max-width: 780px;
+}
+
+/* ==========================================================================
+   PRESIDENTIAL AWARD MAIN SHOWCASE
+   ========================================================================== */
+.awardMain {
+  padding: 3rem 2.5rem;
+  border-bottom: 1px solid var(--border-hairline);
+  background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-surface-elevated) 100%);
+}
+
+.awardHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.awardBadgeStrip {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.awardTitle {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+}
+
+.awardSubtitle {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--accent-text);
+  letter-spacing: -0.01em;
+}
+
+.awardIssuerTag {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+}
+
+.awardNarrative {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  max-width: 900px;
+  margin-bottom: 2rem;
+}
+
+/* ==========================================================================
+   METRICS & SPEC STRIP (Direct Child, Hairline Borders)
+   ========================================================================== */
+.specStrip {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-top: 1px solid var(--border-hairline);
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+@media (min-width: 768px) {
+  .specStrip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .specStrip {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.specCell {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--border-hairline);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+@media (min-width: 768px) {
+  .specCell {
+    border-right: 1px solid var(--border-hairline);
+  }
+  .specCell:nth-child(2n) {
+    border-right: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .specCell {
+    border-bottom: none;
+    border-right: 1px solid var(--border-hairline);
+  }
+  .specCell:last-child {
+    border-right: none;
+  }
+  .specCell:nth-child(2n) {
+    border-right: 1px solid var(--border-hairline);
+  }
+}
+
+.specLabel {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.specValue {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.specDetail {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   CRITERIA & PILLARS SECTION (Two Column Stroke-Divided)
+   ========================================================================== */
+.pillarsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 900px) {
+  .pillarsGrid {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+}
+
+.pillarCol {
+  padding: 2.5rem;
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+@media (min-width: 900px) {
+  .pillarCol {
+    border-bottom: none;
+    border-right: 1px solid var(--border-hairline);
+  }
+  .pillarCol:last-child {
+    border-right: none;
+  }
+}
+
+.pillarHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.pillarIconBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--accent-border);
+  color: var(--accent-text);
+  background-color: var(--accent-subtle);
+}
+
+.pillarTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.pillarLead {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.criteriaList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.criteriaItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.criteriaIcon {
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+  color: var(--accent-text);
+}
+
+/* ==========================================================================
+   INSTITUTIONAL VERIFICATION FOOTER
+   ========================================================================== */
+.verificationFooter {
+  padding: 2rem 2.5rem;
+  background-color: var(--bg-surface-elevated);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.verificationNotice {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  max-width: 720px;
+}
+
+.verificationText {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.verificationText strong {
+  color: var(--text-secondary);
+}
+
+.verificationActions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .frameHeader,
+  .awardMain,
+  .pillarCol,
+  .verificationFooter {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .awardTitle {
+    font-size: 1.75rem;
+  }
+}

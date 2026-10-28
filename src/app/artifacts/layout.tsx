@@ -1,26 +1,25 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Curriculum Vitae, Verified Artifacts & References",
+  title: "Curriculum Vitae, Clinical Presentations & References",
   description:
-    "Comprehensive professional portfolio record compiling verified clinical presentations (Hemodialysis and COPD case study), Seneca President's Honour List certificate, curriculum vitae, and preceptor references.",
+    "Comprehensive professional portfolio record compiling verified clinical presentations (Hemodialysis and COPD case studies), curriculum vitae, and preceptor references.",
   keywords: [
     "Nursing Portfolio Artifacts",
     "Curriculum Vitae",
-    "Seneca President's Honour List Certificate",
     "Hemodialysis Clinical Presentation",
     "COPD Clinical Case Presentation",
     "Nursing References",
-    "Verified Clinical Artifacts",
+    "Verified Clinical Case Studies",
     "Chidi Catherine Obi-Hezekiah",
   ],
   alternates: {
     canonical: "/artifacts",
   },
   openGraph: {
-    title: "Curriculum Vitae, Verified Artifacts & References | Chidi Catherine Obi-Hezekiah, RPN",
+    title: "Curriculum Vitae, Clinical Presentations & References | Chidi Catherine Obi-Hezekiah, RPN",
     description:
-      "A comprehensive professional portfolio record compiling verified clinical presentations, Seneca President's Honour List certificate, curriculum vitae, and clinical references.",
+      "A comprehensive professional portfolio record compiling verified clinical presentations, curriculum vitae, and clinical references.",
     url: "/artifacts",
     images: [
       {
@@ -33,9 +32,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Curriculum Vitae, Verified Artifacts & References | Chidi Catherine Obi-Hezekiah, RPN",
+    title: "Curriculum Vitae, Clinical Presentations & References | Chidi Catherine Obi-Hezekiah, RPN",
     description:
-      "A comprehensive professional portfolio record compiling verified clinical presentations, Seneca President's Honour List certificate, curriculum vitae, and clinical references.",
+      "A comprehensive professional portfolio record compiling verified clinical presentations, curriculum vitae, and clinical references.",
     images: ["/images/og-banner.png"],
   },
 };

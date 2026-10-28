@@ -38,6 +38,7 @@ export default function Footer() {
             <h4 className={styles.footerColTitle}>Portfolio Index</h4>
             <ul className={styles.footerLinks}>
               <li><Link href="/" className={styles.footerLink}>Home &amp; Profile</Link></li>
+              <li><Link href="/awards" className={styles.footerLink}>Awards &amp; Honours</Link></li>
               <li><Link href="/philosophy" className={styles.footerLink}>Nursing Philosophy &amp; BAVs</Link></li>
               <li><Link href="/clinical-practice" className={styles.footerLink}>Clinical Practice &amp; Settings</Link></li>
               <li><Link href="/competencies-standards" className={styles.footerLink}>Skills &amp; CNO Standards</Link></li>

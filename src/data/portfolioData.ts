@@ -20,9 +20,10 @@ export interface NavItem {
   children?: NavItem[];
 }
 
-// 4 main navbar items requested
+// Main navbar items
 export const primaryNavItems = [
   { label: "Home", href: "/" },
+  { label: "Awards & Honours", href: "/awards" },
   { label: "Forward Planning", href: "/forward-planning" },
   { label: "Artifacts & Resume", href: "/artifacts" },
 ];
@@ -102,6 +103,7 @@ export const navigationData: NavItem[] = [
       { label: "CNO Mental Health Standards", href: "/competencies-standards#mental-health-context" },
     ],
   },
+  { label: "Awards & Honours", href: "/awards" },
   { label: "Evaluations & Growth", href: "/evaluations-growth" },
   { label: "Forward Planning", href: "/forward-planning" },
   { label: "Artifacts & Resume", href: "/artifacts" },
@@ -191,24 +193,25 @@ export const nurseProfile = {
   ],
 };
 
+export const academicHonourAward = {
+  award: "President's Honour List",
+  term: "Winter 2026",
+  institution: "Seneca Polytechnic, School of Nursing",
+  issuer: "David Agnew, President, Seneca Polytechnic",
+  program: "Honours Bachelor of Science in Nursing (BSN)",
+  credential: "Academic Distinction & Dean's/President's List",
+  criteria: "Awarded to full-time students who attain a Grade Point Average of 3.8 or higher, demonstrating exemplary academic scholarship, disciplined clinical inquiry, and theoretical mastery.",
+  summary:
+    "Official institutional academic distinction awarded by Seneca Polytechnic President David Agnew in recognition of superior academic scholarship, disciplined clinical inquiry, and nursing excellence achieved in the Honours Bachelor of Science in Nursing program for the Winter 2026 academic term.",
+  highlights: [
+    "Conferred directly by Seneca Polytechnic President David Agnew",
+    "Recognizes top-tier academic scholarship and theoretical mastery in nursing science",
+    "Reflects dedication to evidence-based practice, pharmacological precision, and empirical rigor",
+    "Maintained while concurrently balancing active acute hospital clinical placements and frontline RPN practice",
+  ],
+};
+
 export const verifiedArtifacts = [
-  {
-    id: "seneca-presidents-honour-list",
-    title: "Seneca Polytechnic President's Honour List Certificate",
-    category: "Academic Distinction & Excellence",
-    date: "Winter 2026",
-    credential: "Honours Bachelor of Science - Nursing",
-    issuer: "David Agnew, President, Seneca Polytechnic",
-    summary:
-      "Official institutional distinction awarded by Seneca Polytechnic President David Agnew in recognition of superior academic scholarship and nursing excellence achieved in the Honours Bachelor of Science in Nursing program for the Winter 2026 academic term.",
-    snapshotUrl: "/images/artifacts/seneca-presidents-honour-list-preview.png",
-    pdfUrl: "/documents/seneca-presidents-honour-list-winter-2026.pdf",
-    highlights: [
-      "Official academic certificate bearing the Seneca Polytechnic seal and presidential signature",
-      "Awarded for academic distinction in Honours Bachelor of Science - Nursing",
-      "Demonstrates academic rigor, disciplined inquiry, and scholarship excellence",
-    ],
-  },
   {
     id: "hemodialysis-esrd-presentation",
     title: "Clinical Presentation: Hemodialysis Care to a Patient With End-Stage Renal Disease (ESRD)",

@@ -154,8 +154,19 @@
 }
 
 /* ==========================================================================
-   STROKE-DIVIDED 3-COLUMN GRID (Direct Children of Frame - Zero Gap)
+   STROKE-DIVIDED GRIDS (Direct Children of Frame - Zero Gap)
    ========================================================================== */
+.strokeGrid2 {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 992px) {
+  .strokeGrid2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .strokeGrid3 {
   display: grid;
   grid-template-columns: 1fr;
