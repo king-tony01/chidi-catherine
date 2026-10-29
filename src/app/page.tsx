@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Chidi Catherine Obi-Hezekiah, RPN | Clinical Rigour. Compassionate Care.",
     description:
-      "Electronic Professional Nursing Portfolio of Chidi Catherine Obi-Hezekiah, RPN (CNO licensed since 2021) and Honours BSN Candidate at Seneca Polytechnic (President's Honour List Winter 2026). Specializing in acute med-surg, geriatric rehabilitation, and mental health.",
+      "Electronic Professional Nursing Portfolio of Chidi Catherine Obi-Hezekiah, RPN (CNO 2021) and Honours BSN Candidate at Seneca Polytechnic (President's Honour List Winter 2026). Specializing in acute med-surg, geriatric rehabilitation, and mental health.",
     url: "/",
     images: [
       {
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Chidi Catherine Obi-Hezekiah, RPN | Clinical Rigour. Compassionate Care.",
     description:
-      "Electronic Professional Nursing Portfolio of Chidi Catherine Obi-Hezekiah, RPN (CNO licensed since 2021) and Honours BSN Candidate at Seneca Polytechnic.",
+      "Electronic Professional Nursing Portfolio of Chidi Catherine Obi-Hezekiah, RPN (CNO 2021) and Honours BSN Candidate at Seneca Polytechnic.",
     images: ["/images/og-banner.png"],
   },
 };
@@ -62,7 +62,7 @@ export default function HomePage() {
             <div className={styles.heroContent}>
               <div className={styles.heroEyebrow}>
                 <div className="sectionEyebrow">
-                  CNO RPN LICENSED (2021) &bull; SENECA PRESIDENT&apos;S HONOUR LIST &bull; HONOURS BSN &apos;27
+                  CNO RPN (2021) &bull; SENECA PRESIDENT&apos;S HONOUR LIST &bull; HONOURS BSN &apos;27
                 </div>
               </div>
 
@@ -72,7 +72,7 @@ export default function HomePage() {
               </h1>
 
               <p className={styles.heroLead}>
-                Welcome. I am <strong>{nurseProfile.name}</strong>, a licensed Registered Practical Nurse (RPN with CNO since 2021) with more than four years of acute care, medical-surgical, mental health, and long-term care experience. Currently completing the Honours Bachelor of Science in Nursing program at Seneca Polytechnic, where I was awarded the <strong>President&apos;s Honour List</strong> for academic excellence. This portfolio establishes my evolving clinical competence, verified artifacts, reflective practice, and commitment to holistic, patient-centred care.
+                Welcome. I am <strong>{nurseProfile.name}</strong>, a Registered Practical Nurse (RPN with CNO since 2021) with more than four years of acute care, medical-surgical, mental health, and long-term care experience. Currently completing the Honours Bachelor of Science in Nursing program at Seneca Polytechnic, where I was awarded the <strong>President&apos;s Honour List</strong> for academic excellence. This portfolio establishes my evolving clinical competence, verified artifacts, reflective practice, and commitment to holistic, patient-centred care.
               </p>
 
               <div className={styles.heroActions}>
