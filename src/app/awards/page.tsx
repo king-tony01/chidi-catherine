@@ -250,6 +250,25 @@ export default function AwardsPage() {
                 </Link>
               </div>
             </div>
+
+            {/* Award Documents Section */}
+            <section className={styles.awardDocs}>
+              <h4 className={styles.sectionTitle}>Award Documents</h4>
+              <ul className={styles.awardDocList}>
+                <li className={styles.awardDocItem}>
+                  <FileCheck2 size={16} />
+                  <Link href="/documents/awards/Presidents Honour Award (1).pdf" target="_blank" rel="noopener" className={styles.awardDocLink}>
+                    Presidents Honour Award (1) – PDF
+                  </Link>
+                </li>
+                <li className={styles.awardDocItem}>
+                  <FileCheck2 size={16} />
+                  <Link href="/documents/awards/Presidents Honour Award 2.pdf" target="_blank" rel="noopener" className={styles.awardDocLink}>
+                    Presidents Honour Award (2) – PDF
+                  </Link>
+                </li>
+              </ul>
+            </section>
           </div>
         </section>
       </div>
